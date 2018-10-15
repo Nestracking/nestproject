@@ -22,6 +22,15 @@ const db = mongoose.connect( uri, function( err, response){
         res.setHeader( 'Access-Control-Expose-Headers', 'Content-Length,Content-Range');
     next();
     });
+
+    app.get("/Filter", async function (req,res,){
+        let FilterList = req.query.Filter;
+        let ArticleList = await modele.find({ "Champ1" : FilterList.Pays, "Champ2": FilterList.ville}, {}).sort({'Article.Date': -1});
+        console.log(ArticleList);
+        res.json(ArticleList);
+        }
+      });
+
     
 
     app.listen(process.env.PORT ||8014, ()=>{

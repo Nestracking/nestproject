@@ -28,7 +28,6 @@ const db = mongoose.connect( uri, function( err, response){
         let ArticleList = await modele.find({ "Champ1" : FilterList.Pays, "Champ2": FilterList.ville}, {}).sort({'Article.Date': -1});
         console.log(ArticleList);
         res.json(ArticleList);
-        }
       });
 
     

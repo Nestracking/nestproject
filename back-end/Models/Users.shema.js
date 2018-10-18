@@ -10,7 +10,7 @@ var schema = new Mongoose.Schema({
           "Comment": String,
                         }],
                     });
-// Schema des reservations
+// Schema des User
 
 module.exports = Mongoose.model('user', schema);
-// Schéma dog pour notre collections dogs
+// export

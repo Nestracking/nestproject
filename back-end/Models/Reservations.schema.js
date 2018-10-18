@@ -8,4 +8,4 @@ var schema = new Mongoose.Schema({
 // Schema des reservations
 
 module.exports = Mongoose.model('reservation', schema);
-// Schéma dog pour notre collections dogs
+// Export

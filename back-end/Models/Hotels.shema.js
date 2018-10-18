@@ -1,6 +1,6 @@
 var schema = new Mongoose.Schema({
 });
-// Schema des reservations
+// Schema hotel
 
 module.exports = Mongoose.model('hotels', schema);
-// Schéma dog pour notre collections dogs
+// export

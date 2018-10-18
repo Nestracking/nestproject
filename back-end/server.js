@@ -25,11 +25,39 @@ const db = mongoose.connect( uri, function( err, response){
 
     app.get("/Filter", async function (req,res,){
         let FilterList = req.query.Filter;
+
         let ArticleList = await modele.find({ "Champ1" : FilterList.Pays, "Champ2": FilterList.ville}, {}).sort({'Article.Date': -1});
         console.log(ArticleList);
         res.json(ArticleList);
         }
       );
+
+        let DestinationList = await modele.find()
+    FilterList.forEach(function(filters){
+if(filters.value !== "All"){
+    switch(filters.type){
+case "Number":
+DestinationList.where(filters.key).equals(filters.value);
+break;
+
+case "Array":
+DestinationList.where(filters.value).within(filter.key);
+break;
+
+default:
+DestinationList.where(filters.key).equals(filters.value);
+break;
+    }
+
+ 
+} 
+console.log(DestinationList);
+        res.json(DestinationList);
+    });
+
+       
+      
+
 
     
 

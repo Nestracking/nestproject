@@ -29,7 +29,7 @@ const db = mongoose.connect( uri, function( err, response){
         console.log(ArticleList);
         res.json(ArticleList);
         }
-      });
+      );
 
     
 

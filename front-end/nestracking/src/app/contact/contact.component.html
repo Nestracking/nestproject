@@ -1,0 +1,45 @@
+
+<div class="componentContent">
+
+  <section class="formContainer">
+    Formulaire de contact
+  </section>
+  <section class="sectionForm">
+<form [formGroup]="userForm" (submit)="SendMail(userForm.value)">
+  <section >
+    <mat-form-field >
+      <input  matInput placeholder="name" 
+      formControlName="name">
+      <mat-error *ngIf="userForm.controls.name.invalid">{{getErrorMessage('name')}}</mat-error>
+    </mat-form-field>
+  </section>
+  <section>
+    <mat-form-field>
+      <input  matInput placeholder="email" 
+      formControlName="email">
+      <mat-error *ngIf="userForm.controls.email.invalid">{{getErrorMessage('email')}}</mat-error>
+    </mat-form-field>
+  </section>
+
+  <section>
+    <mat-form-field>
+      <input  matInput placeholder="Object" 
+      formControlName="Object">
+      <mat-error *ngIf="userForm.controls.Object.invalid">{{getErrorMessage('Object')}}</mat-error>
+    </mat-form-field>
+  </section>
+
+  <section>
+    <mat-form-field>
+    <input  matInput placeholder="message" 
+    formControlName="message">
+    <mat-error *ngIf="userForm.controls.message.invalid">{{getErrorMessage('message')}}</mat-error>
+    </mat-form-field>
+  </section>
+  
+
+  <button mat-raised-button  color="primary" [disabled]="!userForm.valid">Send</button>
+</form>
+</section>
+</div>
+

@@ -1,14 +1,87 @@
-<ul class="navSide">
+<div class="appHeaderContent">
+
+  <div class="navBar">
+    <div class="logoContenair">
+     <a [routerLink]="['/index']" 
+     routerLinkActive="active">
+      <img src="../../assets/public/images/a (1).svg" width="230" height="130" alt="logosite">
+    </a>
+    </div>
+    <div class="menuContent">
+        <a class="loginLink" [routerLink]="['/index']" 
+        routerLinkActive="active"><img src="../../assets/public/images/login.icon.svg" width="20" height="40" alt=""></a>
+      
+      
+      <button mat-button [matMenuTriggerFor]="menu" class="imgMenu"> 
+        <img src="../../assets/public/images/menu-options.svg" width="40" height="20" alt="" >
+      </button>
+        <mat-menu #menu="matMenu">
+          
+          <button mat-menu-item>
+            <a [routerLink]="['/index']" 
+            routerLinkActive="active">
+            Accueil</a></button>
+
+          <button mat-menu-item>
+            <a [routerLink]="['/searchpage']" 
+            routerLinkActive="active">
+            Recherche</a></button>
+
+          <button mat-menu-item>
+            <a [routerLink]="['/contact']" 
+            routerLinkActive="active">
+            Contact</a></button>
+          
+        </mat-menu>
+     
+    </div>
+  </div>
+</div>
+<!-- <ul class="navSide">
   <li>
     <a 
     [routerLink]="['/index']" 
-    routerLinkActive="active"
+    routterLink]="['/searchpage']" 
+    routerLinkActive="active">
+    
+    searchpage</a></li>
+  <li>
+    <a 
+    [routerLink]="['/product']" 
+    routerLinkActive="active">
+    
+    product</a> </li>
+  <li>
+    <a 
+    [routerLink]="['/contact']" 
+    routerLinkActive="active">
+    
+    contact</a> </li>
+  
+</ul>erLinkActive="active"
      >
     
      index </a> </li>
 
   <li>
+    <a terLink]="['/searchpage']" 
+    routerLinkActive="active">
+    
+    searchpage</a></li>
+  <li>
     <a 
+    [routerLink]="['/product']" 
+    routerLinkActive="active">
+    
+    product</a> </li>
+  <li>
+    <a 
+    [routerLink]="['/contact']" 
+    routerLinkActive="active">
+    
+    contact</a> </li>
+  
+</ul>
     [routerLink]="['/searchbar']" 
     routerLinkActive="active">
     
@@ -32,4 +105,4 @@
     
     contact</a> </li>
   
-</ul>
+</ul> -->

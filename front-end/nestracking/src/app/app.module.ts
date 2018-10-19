@@ -23,8 +23,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-// import { LayoutModule } from '@angular/cdk/layout';
-// import { MatToolbarModule, MatIconModule } from '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -48,7 +47,8 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

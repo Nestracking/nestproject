@@ -33,6 +33,7 @@ app.get("/Filter", async function (req, res, ) {
     let FilterList = req.query.Filter;
     let Sortitem = req.query.sort;
     let queryFilter = {};
+    console.log(FilterList);
     FilterList.forEach(function (filters) {
         if (filters.value !== "All") {
             queryFilter[filters.key] = filters.value;

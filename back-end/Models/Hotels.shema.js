@@ -1,4 +1,6 @@
-var schema = new Mongoose.Schema({
+const mongoose = require('mongoose');
+
+var schema = new mongoose.Schema({
         "_id": {
             "$oid": String,
         },
@@ -18,9 +20,9 @@ var schema = new Mongoose.Schema({
         "URL 1": String,
         "ROOMS": Number,
         "STARS": Number,
-        "BARS": Boolean,
-        "RESTAURANTS": Boolean,
-        "CONFERENCE FACILITIES": Boolean,
+        "BARS": String,
+        "RESTAURANTS": String,
+        "CONFERENCE FACILITIES": String,
         "GEO LATITUDE": String,
         "GEO LONGITUDE": String,
         "Theme": [String],
@@ -34,5 +36,5 @@ var schema = new Mongoose.Schema({
 });
 // Schema hotel
 
-module.exports = Mongoose.model('hotels', schema);
+module.exports = mongoose.model('hotels', schema);
 // export

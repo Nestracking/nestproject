@@ -4,7 +4,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const nodemailer = require("nodemailer");
 
-const uri = "mongodb://Voyage:15oct18@ds223009.mlab.com:23009/arnaudscieur";
+const HotelsModel = require("./Models/Hotels.shema");
+const ReservationsModel = require("./Models/Reservations.schema");
+const UsersModel = require("./Models/Users.shema");
+
+const uri = "mongodb://Kaillens:wafwafmiaou-2@ds223009.mlab.com:23009/arnaudscieur";
 
 const db = mongoose.connect(uri, function (err, response) {
     if (err) { console.log(err); }
@@ -15,6 +19,7 @@ app.use(bodyParser());
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 app.use(function (req, res, next) {
     // res.setHeader( 'Access-Control-Allow-Origin', process.env.PORT);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
@@ -23,38 +28,23 @@ app.use(function (req, res, next) {
     next();
 });
 
+
 app.get("/Filter", async function (req, res, ) {
     let FilterList = req.query.Filter;
-    let Sort = req.query.Sort;
-    let DestinationList = await modele.find();
+    let Sortitem = req.query.sort;
+    let queryFilter = {};
     FilterList.forEach(function (filters) {
         if (filters.value !== "All") {
-            switch (filters.type) {
-                case "Number":
-                    DestinationList.where(filters.key).equals(filters.value);
-                    break;
-
-                case "Array":
-                    DestinationList.where(filters.value).within(filter.key);
-                    break;
-
-                default:
-                    DestinationList.where(filters.key).equals(filters.value);
-                    break;
-            }
-
-
+            queryFilter[filters.key] = filters.value;
         }
-        console.log(DestinationList);
-        res.json(DestinationList);
+
     });
+    let DestinationList = await HotelsModel.find(queryFilter).sort(Sortitem);
+    res.json(DestinationList);
 });
 
 
-
-
-
-
-app.listen(process.env.PORT || 8014, () => {
+app.listen(process.env.PORT || 8014, async () => {
     console.log('waf waf 8014 waf waf');
 })
+

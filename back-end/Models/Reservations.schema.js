@@ -1,4 +1,6 @@
-var schema = new Mongoose.Schema({
+const mongoose = require('mongoose');
+
+var schema = new mongoose.Schema({
     "UserID" : String,
     "HotelID": String,
     "Chamber": Number,
@@ -7,5 +9,5 @@ var schema = new Mongoose.Schema({
 });
 // Schema des reservations
 
-module.exports = Mongoose.model('reservation', schema);
+module.exports = mongoose.model('reservation', schema);
 // Export

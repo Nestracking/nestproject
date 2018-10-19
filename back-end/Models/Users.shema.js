@@ -1,4 +1,6 @@
-var schema = new Mongoose.Schema({
+const mongoose = require('mongoose');
+
+var schema = new mongoose.Schema({
         "Name" : String,
         "Password": String,
         "UserRatings": [{
@@ -12,5 +14,5 @@ var schema = new Mongoose.Schema({
                     });
 // Schema des User
 
-module.exports = Mongoose.model('user', schema);
+module.exports = mongoose.model('user', schema);
 // export

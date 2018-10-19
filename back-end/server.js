@@ -32,7 +32,8 @@ app.get("/Filter", Filter);
 const NewReservation = require("./Controller/NewReservation.js")
 app.post("/NewReservation", NewReservation);
 
-
+const DeleteReservation = require("./Controller/DeleteReservation.js");
+app.delete("/DeleteReservation", DeleteReservation);
 
 
 app.listen(process.env.PORT || 8014, async () => {

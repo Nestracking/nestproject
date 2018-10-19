@@ -5,6 +5,7 @@ var schema = new mongoose.Schema({
     "HotelID": String,
     "Chamber": Number,
     "Date.start": String,
+    "Date.end": String,
     "Durée": Number,
 });
 // Schema des reservations

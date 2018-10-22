@@ -1,0 +1,17 @@
+@mixin clearfix {
+    &:after{
+        content:'';
+        display: block;
+        clear: both;
+    }
+}
+
+
+@mixin breakpoint($media, $bp){
+    @media #{$media} and (min-width: $bp){
+        /* @media screen and (min-width: 960px) */
+            @content; 
+    }
+}
+
+

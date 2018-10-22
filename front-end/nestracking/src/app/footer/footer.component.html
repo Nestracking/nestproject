@@ -1,3 +1,35 @@
-<p>
-  footer works!
-</p>
+<div class="footer">
+  <button mat-button [matMenuTriggerFor]="menu" class="imgMenu">
+    <img class="imgMenuIcon" src="../../assets/public/images/menu-options.svg" alt="">
+  </button>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item><a [routerLink]="['/index']" routerLinkActive="active">
+        Accueil</a></button>
+    <button mat-menu-item>Abouts US</button>
+    <button mat-menu-item>Conditions</button>
+    <button mat-menu-item><a [routerLink]="['/contact']" routerLinkActive="active">
+        Contact</a></button>
+    <button mat-menu-item>Sitmap</button>
+    <button mat-menu-item>Blog</button>
+    <button mat-menu-item>Press</button>
+    <button mat-menu-item>Help</button>
+  </mat-menu>
+  <div class="texte">La digue du cul en revenant de Nantes (bis) De Nantes à Montaigu, La digue la digue De Nantes à Montaigu
+    La digue du cul Refrain : Lève la jambe, voilà qu’ça rentre Lève la cuisse, la cuisse, la cuisse Voilà qu’ça glisse Lève
+    la jambe, voilà qu’ça rentre Lève la cuisse, la cuisse, la cuisse Voilà qu’ça glisse Oh ! Hisse La digue du cul, je rencontre
+    une belle (bis) Qui dormait le cul nu La digue la digue Qui dormait le cul nu La digue du cul La digue du cul j'arme
+    mon arbalète (bis) Et j'lui fous droit dans le cul La digue la digue Et j'lui fout droit dans le cul La digue du cul
+  </div>
+  <div class="newsletter">
+    <p>If you want to received our newsletter, please insert your mail below</p>
+    <div class="formulaire">
+      <input type="text" placeholder="  mets ton Mail Connard !!">
+
+      <button class="sendNewsLetter">SEND</button>
+    </div>
+  </div>
+  <div class="icons">
+    <img src="../../assets/public/images/033-facebook-1.png" alt="Facebook">
+    <img src="../../assets/public/images/034-twitter.png" alt="Twitter">
+  </div>
+</div>

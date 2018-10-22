@@ -1,3 +1,42 @@
-<p>
-  searchpage works!
-</p>
+<div id="Tri">
+    <ul>
+        <li class="TriOption" *ngFor="let Criteria of TriCriteria" (click)="Tri(Criteria.Criteria)" [ngClass]="{selected: SelectedTriCriteria === Criteria.Criteria }"><p>{{Criteria.Criteria}}</p><img class="ArrowSelect" src="{{Criteria.ARROW.URL}}"></li>
+        </ul>
+</div>
+
+<section class="DownSideSearch">
+<div id="Filter">
+    <div class="OneFilter">
+        <label>City</label><input type="text" name="City" value="City"><br>
+    </div>
+<div class="OneFilter">
+       <label>Country</label><input type="text" name="Country" value="Country"><br>
+    </div>
+    <div class="OneFilter">
+            <label>Stars</label><div class="Star"></div><div class="Star"></div><div class="Star"></div><div class="Star"></div><div class="Star"></div>
+            <!-- Modifié Affichage étoiles-->
+         </div>
+<label>Restaurants</label>
+    <input type="radio" name="RESTAURANTS" value="True"> Yes
+    <input type="radio" name="RESTAURANTS" value="False"> No <br>
+
+<div class="OneFilter">
+       <label>Price</label><select name="Price">
+            <option value="150/300">150 à 300 €</option>
+            <option value="301/600">301 à 600 €</option>
+            <option value="601/900">600 à 900 €</option>
+            <option value="901/1200">900 à 1200 €</option>
+            <option value="1201/1500">1200 à 1500 €</option>
+          </select>
+</div>
+<div class="OneFilter">
+        <label>Themes</label><input type="text" name="Themes" value="Themes"><br>
+        <label>Click to delete one theme</label><p></p>
+        <!-- On fera un *For pour l'affichage des themes-->
+     </div>
+
+<div class="SearchResult">
+
+</div>
+</div>
+</section>

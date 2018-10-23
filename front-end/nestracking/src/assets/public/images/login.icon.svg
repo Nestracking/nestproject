@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Calque_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+<svg version="1.1" id="Calque_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 55.8 55.8" style="enable-background:new 0 0 55.8 55.8;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#E8B559;}
+	.st0{fill:#FCFCFC;}
 </style>
-<circle class="st0" cx="20" cy="11.5" r="11.5"/>
-<path class="st0" d="M0,40h40c0,0,0.8-11.4-11.1-17.9c0,0-8.6,8-17.8,0C11.1,22.1,0,26.7,0,40z"/>
+<path class="st0" d="M5.2,43.7h45.5c0,0-7.3,11.9-22.8,11.9C27.9,55.6,14.3,56.6,5.2,43.7z"/>
+<g>
+	<path class="st0" d="M5.3,43.8c0,0-8.1-9.5-4-23.3c0,0,4.5-20.2,26.6-20.2l0,3.4c0,0-10.3-0.3-11.5,10.8c0,0-0.7,6.8,5.6,10.6
+		c0,0,2.1,1.7,6,1.6v2.7c0,0-4.6,0.3-9-3.6c0,0-5.7,2.4-9,8.7c0,0-2.3,4.1-2.1,9.5L5.3,43.8z"/>
+	<path class="st0" d="M50.6,43.8c0,0,8-9.5,3.9-23.3c0,0-4.5-20.2-26.6-20.2l0,3.4c0,0,10.3-0.3,11.5,10.8c0,0,0.7,6.8-5.6,10.6
+		c0,0-2.1,1.7-6,1.6v2.7c0,0,4.5,0.4,9-3.6c0,0,5.7,2.4,9,8.7c0,0,2.3,4.1,2.1,9.5L50.6,43.8z"/>
+</g>
 </svg>

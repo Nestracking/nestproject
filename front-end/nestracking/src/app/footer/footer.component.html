@@ -1,3 +1,66 @@
-<p>
-  footer works!
-</p>
+<div class="footer">
+  <button mat-button [matMenuTriggerFor]="menu" class="imgMenu">
+    <img class="imgMenuIcon" src="../../assets/public/images/menu.svg" alt="">
+  </button>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item><a [routerLink]="['/index']" routerLinkActive="active">
+        Accueil</a></button>
+    <button mat-menu-item>Abouts US</button>
+    <button mat-menu-item>Blog</button>
+    <button mat-menu-item>Conditions</button>
+    <button mat-menu-item><a [routerLink]="['/contact']" routerLinkActive="active">
+        Contact</a></button>
+    <button mat-menu-item>Help</button>
+    <button mat-menu-item>Press</button>
+    <button mat-menu-item><a [routerLink]="['/searchpage']" routerLinkActive="active">
+        Recherche</a></button>
+    <button mat-menu-item>Sitmap</button>
+
+  </mat-menu>
+
+  <div class="container">
+    <div class="texte">La digue du cul en revenant de Nantes (bis) De Nantes à Montaigu, La digue la digue De Nantes à Montaigu
+      La digue du cul Refrain : Lève la jambe, voilà qu’ça rentre Lève la cuisse, la cuisse, la cuisse Voilà qu’ça glisse
+      Lève la jambe, voilà qu’ça rentre Lève la cuisse, la cuisse, la cuisse Voilà qu’ça glisse Oh ! Hisse La digue du cul,
+      je rencontre une belle (bis) Qui dormait le cul nu La digue la digue Qui dormait le cul nu La digue du cul La digue
+      du cul j'arme mon arbalète (bis) Et j'lui fous droit dans le cul La digue la digue Et j'lui fout droit dans le cul
+      La digue du cul
+    </div>
+    <div class="newsletter">
+      <p>If you want to received our newsletter,please insert your mail below</p>
+      <div class="formulaire">
+        <input class="champ" type="text" placeholder="  mets ton Mail Connard !!">
+
+        <button class="sendNewsLetter">SEND</button>
+      </div>
+    </div>
+  </div>
+  <div class="menu-horiz">
+    <ul>
+      <li><a [routerLink]="['/index']" routerLinkActive="active">
+          About us</a></li>
+      <li><a [routerLink]="['/conditions']" routerLinkActive="active">
+          Conditions</a></li>
+      <li><a [routerLink]="['/contact']" routerLinkActive="active">
+          Contact</a></li>
+      <li><a [routerLink]="['/sitemap']" routerLinkActive="active">
+          Sitemap</a></li>
+      <li><a [routerLink]="['/blog']" routerLinkActive="active">
+          Blog</a></li>
+      <li><a [routerLink]="['/press']" routerLinkActive="active">
+          Press</a></li>
+      <li><a [routerLink]="['/help']" routerLinkActive="active">
+          Help</a></li>
+      <li><a [routerLink]="['/searchpage']" routerLinkActive="active">
+          Recherche</a></li>
+    </ul>
+  </div>
+  <div class="icons">
+    <a href="https://www.facebook.com/" target="_blank">
+      <img class="logo" src="../../assets/public/images/033-facebook-1.png" alt="Facebook">
+    </a>
+    <a href="https://twitter.com/" target="_blank">
+      <img class="logo" src="../../assets/public/images/034-twitter.png" alt="Twitter">
+    </a>
+  </div>
+</div>

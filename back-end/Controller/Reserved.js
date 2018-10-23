@@ -11,7 +11,7 @@ modules.export = (Hotels, Dates, NbreChambre) => {
 
         Dates.Foreach(async (Date) => {
 
-            Reservation = await ReservationsModel.find({ 'HotelID': Hotel._id.$oid, 'Date.start': Date }, { "Chamber": 1 });
+            Reservation = await ReservationsModel.find({ 'HotelID': Hotel._id.$oid, 'Date.start': Date }, { "Chamber": 1, "_id.$oid": 0});
             Reservation = await Reservation.reduce((sum, x) => sum + x);
             if (Reservation > BiggestReservation) {
                 BiggestReservation = Reservation;

@@ -26,20 +26,8 @@ app.use(function (req, res, next) {
 });
 
 
-<<<<<<< HEAD
-app.get("/Filter", async function (req, res, ) {
-    let FilterList = req.query.Filter;
-    let Sortitem = req.query.sort;
-    let queryFilter = {};
-    console.log(FilterList);
-    FilterList.forEach(function (filters) {
-        if (filters.value !== "All") {
-            queryFilter[filters.key] = filters.value;
-        }
-=======
 const Filter = require("./Controller/Filter.js")
 app.get("/Filter", Filter);
->>>>>>> d64c0782ff17854694ed9bdf206f2de8aacc97c0
 
 const NewReservation = require("./Controller/NewReservation.js")
 app.post("/NewReservation", NewReservation);
@@ -51,4 +39,4 @@ app.delete("/DeleteReservation", DeleteReservation);
 app.listen(process.env.PORT || 8014, async () => {
     console.log('waf waf 8014 waf waf');
 });
-
+    

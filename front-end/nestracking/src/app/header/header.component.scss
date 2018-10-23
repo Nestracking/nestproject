@@ -41,11 +41,28 @@
         .menuContent{
             float: right;
             height: 100%;
-            width: 30%;
+            width: 40%;
             min-width: 110px;
             margin-right: 1em;
             text-align: right;
             padding-top: 1em;
+            .navMenu{
+                visibility: hidden;
+                ul{
+                    list-style: none;
+                    li{
+                        float:right;
+                        margin:.5em;
+                        a{
+                          color: white;
+                        }
+                    }
+                    
+                }
+                @include breakpoint (screen, $iPadWidth){
+                    visibility: visible;
+                }
+            }
             .imgLogin{
                 width: 5vw;
                 height:5vh;

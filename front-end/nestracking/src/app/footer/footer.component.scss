@@ -51,8 +51,8 @@ padding:1rem;
     
     .logo{
         padding-left: 0;
-        padding-right: 0.5rem;
-        padding-bottom: 0.3rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
     }
     
 }
@@ -78,6 +78,7 @@ padding:1rem;
 
     .imgMenuIcon{
         visibility: hidden;
+        display:none;
     }
     .container{
         position: relative;
@@ -128,9 +129,7 @@ padding:1rem;
                 max-width: 500px;
                 margin-left: 80px;
             }
-            .newsletter{
-            //    position: relative ;top:70%;left:60%;
-            }
+            
         }
     }
 };

@@ -26,6 +26,7 @@ app.use(function (req, res, next) {
 });
 
 
+<<<<<<< HEAD
 app.get("/Filter", async function (req, res, ) {
     let FilterList = req.query.Filter;
     let Sortitem = req.query.sort;
@@ -35,6 +36,10 @@ app.get("/Filter", async function (req, res, ) {
         if (filters.value !== "All") {
             queryFilter[filters.key] = filters.value;
         }
+=======
+const Filter = require("./Controller/Filter.js")
+app.get("/Filter", Filter);
+>>>>>>> e4a294172c6a8f518749e48cfd76e69b80220067
 
 const NewReservation = require("./Controller/NewReservation.js")
 app.post("/NewReservation", NewReservation);

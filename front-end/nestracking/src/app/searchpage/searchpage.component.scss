@@ -1,0 +1,63 @@
+li{
+    list-style-type: none;     
+}
+
+ul{
+    padding: 0px;
+}
+
+#Tri{
+width: 90%;
+margin-top: 10px;
+margin-left: auto;
+margin-right: auto;
+height: 80px;
+background-color: #3ab3b0;
+border-radius: 50px 50px 0px 0px;
+display: flex;
+align-content: center;
+justify-content: center;
+}
+
+.DownSideSearch{
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+margin-bottom: 20px;
+width: 90%;
+margin-left: auto;
+margin-right: auto;    
+}
+
+#Filter{
+width: 30%;
+background-color: grey;
+height: 800px;
+}
+
+.SearchResult{
+width: 65%;
+height: 800px;
+}
+
+.TriOption{
+    cursor: pointer;
+    float:left;
+    width: 100px;
+    height: 35px;  
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+
+.ArrowSelect{
+width: 10px;
+height:10px;
+margin-top: 21%;
+margin-left: 10px;
+}
+
+.selected{
+color:#ffcc66; 
+}

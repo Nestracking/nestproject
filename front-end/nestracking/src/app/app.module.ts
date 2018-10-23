@@ -27,6 +27,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

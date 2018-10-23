@@ -1,0 +1,48 @@
+.searchBar{
+    width: 90%;
+    margin:auto;
+    background-color: #41B4AF;
+    padding:0.5em;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.gridContainer{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1em; 
+    grid-row-gap: 1em;
+    div{
+        text-align:center;
+        width: 100%;
+    }
+    .item1Country{
+        grid-column: 1/2 span;
+        grid-row: 1;
+        input{
+            width:98%;
+        }
+    }
+    .item2Number{
+        grid-column: 1/2 span;
+        grid-row: 2;
+        input{
+            width:98%;
+        }
+    }
+    .item3DateGo,.item4DateBack{
+        grid-column: 1 span;
+        grid-row: 3;
+        input{
+            width: 98%;
+        }
+    }
+    .item5SubmitBtn{
+        grid-column: 1/2 span;
+        grid-row: 4;
+        button{
+            width: 100%;
+            border-radius:7px; 
+        }
+    }
+}

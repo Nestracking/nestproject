@@ -4,7 +4,7 @@
     background-color: #BEB09C;
     .imgMenu.mat-button{
         width:100%;
-        background-color: #178887;
+        //background-color: #178887;
         margin: auto ;
         padding: auto;
         line-height: 0;            
@@ -15,9 +15,7 @@
         height:5vh;
         float: right;
     }
-    .mat-menu-content{
-        background-color: #178887;
-    }
+    
 };
 .newsletter{
     text-align: center;
@@ -40,3 +38,14 @@
 .texte{
 padding:1rem;
 };
+
+.icons{
+    display: flex;
+    justify-content: flex-end;
+    
+    .logo{
+        padding-left: 0;
+        padding-right: 0.5rem;
+        padding-bottom: 0.3rem;
+    }
+}

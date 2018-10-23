@@ -1,6 +1,6 @@
 <div class="footer">
   <button mat-button [matMenuTriggerFor]="menu" class="imgMenu">
-    <img class="imgMenuIcon" src="../../assets/public/images/menu-options.svg" alt="">
+    <img class="imgMenuIcon" src="../../assets/public/images/menu blue.svg" alt="">
   </button>
   <mat-menu #menu="matMenu" xPosition="before">
     <button mat-menu-item><a [routerLink]="['/index']" routerLinkActive="active">
@@ -13,6 +13,8 @@
     <button mat-menu-item>Blog</button>
     <button mat-menu-item>Press</button>
     <button mat-menu-item>Help</button>
+    <button mat-menu-item><a [routerLink]="['/searchpage']" routerLinkActive="active">
+      Recherche</a></button>
   </mat-menu>
   <div class="texte">La digue du cul en revenant de Nantes (bis) De Nantes à Montaigu, La digue la digue De Nantes à Montaigu
     La digue du cul Refrain : Lève la jambe, voilà qu’ça rentre Lève la cuisse, la cuisse, la cuisse Voilà qu’ça glisse Lève
@@ -29,7 +31,7 @@
     </div>
   </div>
   <div class="icons">
-    <img src="../../assets/public/images/033-facebook-1.png" alt="Facebook">
-    <img src="../../assets/public/images/034-twitter.png" alt="Twitter">
+    <img class="logo" src="../../assets/public/images/033-facebook-1.png" alt="Facebook">
+    <img class="logo" src="../../assets/public/images/034-twitter.png" alt="Twitter">
   </div>
 </div>

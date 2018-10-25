@@ -27,7 +27,12 @@ app.use(function (req, res, next) {
 
 
 const Filter = require("./Controller/Filter.js")
-app.get("/Filter", Filter);
+app.get("/Filter", function(req, res){
+    console.log(req.query);
+    console.log(req.params);
+    console.log(req.query.Filter);
+    console.log("-----------------------")
+});
 
 const NewReservation = require("./Controller/NewReservation.js")
 app.post("/NewReservation", NewReservation);

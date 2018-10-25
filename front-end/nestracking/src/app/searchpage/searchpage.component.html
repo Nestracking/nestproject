@@ -1,42 +1,66 @@
 <div id="Tri">
     <ul>
-        <li class="TriOption" *ngFor="let Criteria of TriCriteria" (click)="Tri(Criteria.Criteria)" [ngClass]="{selected: SelectedTriCriteria === Criteria.Criteria }"><p>{{Criteria.Criteria}}</p><img class="ArrowSelect" src="{{Criteria.ARROW.URL}}"></li>
-        </ul>
+        <li class="TriOption" *ngFor="let Criteria of TriCriteria" (click)="Tri(Criteria.Criteria)" [ngClass]="{selected: SelectedTriCriteria === Criteria.Criteria }">
+            <p>{{Criteria.Criteria}}</p><img class="ArrowSelect" src="{{Criteria.ARROW.URL}}">
+        </li>
+    </ul>
 </div>
 
 <section class="DownSideSearch">
-<div id="Filter">
-    <div class="OneFilter">
-        <label>City</label><input type="text" name="City" value="City"><br>
+    <div id="Filter">
+            <label>City</label>
+            <div class="OneFilter">
+                    <input type="text" name="City" value="City" (keyup)="onKey($event,'City')">
+                </div>
+            <label>Country</label>
+            <div class="OneFilter">
+                    <input type="text" name="Country" value="Country" (keyup)="onKey($event,'Country')">
+                </div>
+            <label>Stars</label>
+            <div class="OneFilter">
+                    <div class="Star" (click)="MyStars(1)" [ngClass]="{FullStar: Stars >= 1 }"></div>
+                    <div class="Star" (click)="MyStars(2)" [ngClass]="{FullStar: Stars >= 2 }"></div>
+                    <div class="Star" (click)="MyStars(3)" [ngClass]="{FullStar: Stars >= 3 }"></div>
+                    <div class="Star" (click)="MyStars(4)" [ngClass]="{FullStar: Stars >= 4 }"></div>
+                    <div class="Star" (click)="MyStars(5)" [ngClass]="{FullStar: Stars >= 5 }"></div>
+                    <!-- Modifié Affichage étoiles-->
+                </div>
+            <label>Restaurants</label>
+            <div class="OneFilter">
+                    <input type="radio" name="RESTAURANTS" value="True"  [(ngModel)]="FilterList[3].value"
+                    (ngModelChange)="choose($event)" > Yes
+                    <input type="radio" name="RESTAURANTS" value="All"  [(ngModel)]="FilterList[3].value"
+                    (ngModelChange)="choose($event)"> Whatever 
+                </div>
+            <label>Price</label>
+            <div class="OneFilter">
+                    <select name="Price" [(ngModel)]="PriceRange" (ngModelChange)="Price($event)">
+                        <option value="150/300">150 à 300 €</option>
+                        <option value="301/600">301 à 600 €</option>
+                        <option value="601/900">600 à 900 €</option>
+                        <option value="901/1200">900 à 1200 €</option>
+                        <option value="1201/1500">1200 à 1500 €</option>
+                    </select>
+                </div>
+            <label>Themes</label>
+
+            <div class="OneFilter">
+                <input type="text" name="Themes" value="Themes" (keyup)="onKey($event,'Themes')"><br>
+                <p>Click to delete one theme</p>
+                <p></p>
+                <!-- On fera un *For pour l'affichage des themes-->
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="SearchResult">
+
+        </div>
     </div>
-<div class="OneFilter">
-       <label>Country</label><input type="text" name="Country" value="Country"><br>
-    </div>
-    <div class="OneFilter">
-            <label>Stars</label><div class="Star"></div><div class="Star"></div><div class="Star"></div><div class="Star"></div><div class="Star"></div>
-            <!-- Modifié Affichage étoiles-->
-         </div>
-<label>Restaurants</label>
-    <input type="radio" name="RESTAURANTS" value="True"> Yes
-    <input type="radio" name="RESTAURANTS" value="False"> No <br>
-
-<div class="OneFilter">
-       <label>Price</label><select name="Price">
-            <option value="150/300">150 à 300 €</option>
-            <option value="301/600">301 à 600 €</option>
-            <option value="601/900">600 à 900 €</option>
-            <option value="901/1200">900 à 1200 €</option>
-            <option value="1201/1500">1200 à 1500 €</option>
-          </select>
-</div>
-<div class="OneFilter">
-        <label>Themes</label><input type="text" name="Themes" value="Themes"><br>
-        <label>Click to delete one theme</label><p></p>
-        <!-- On fera un *For pour l'affichage des themes-->
-     </div>
-
-<div class="SearchResult">
-
-</div>
-</div>
 </section>

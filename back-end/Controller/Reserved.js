@@ -5,13 +5,13 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-modules.export = (Hotels, Dates, NbreChambre) => {
+module.export = (Hotels, Dates, NbreChambre) => {
     Hotels.filter((Hotel) => {
         BiggestReservation = 0;
 
-        Dates.Foreach(async (Date) => {
+        Dates.Foreach(async (Dates) => {
 
-            Reservation = await ReservationsModel.find({ 'HotelID': Hotel._id.$oid, 'Date.start': Date }, { "Chamber": 1, "_id.$oid": 0});
+            Reservation = await ReservationsModel.find({ 'HotelID': Hotel._id.$oid, 'Date.start': Dates }, { "Chamber": 1, "_id.$oid": 0});
             Reservation = await Reservation.reduce((sum, x) => sum + x);
             if (Reservation > BiggestReservation) {
                 BiggestReservation = Reservation;

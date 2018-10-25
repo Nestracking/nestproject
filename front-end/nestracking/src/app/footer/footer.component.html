@@ -1,35 +1,79 @@
 <div class="footer">
   <button mat-button [matMenuTriggerFor]="menu" class="imgMenu">
-    <img class="imgMenuIcon" src="../../assets/public/images/menu-options.svg" alt="">
+    <img class="imgMenuIcon" src="../../assets/public/images/menu.svg" alt="">
   </button>
   <mat-menu #menu="matMenu" xPosition="before">
     <button mat-menu-item><a [routerLink]="['/index']" routerLinkActive="active">
         Accueil</a></button>
     <button mat-menu-item>Abouts US</button>
+    <button mat-menu-item>Blog</button>
     <button mat-menu-item>Conditions</button>
     <button mat-menu-item><a [routerLink]="['/contact']" routerLinkActive="active">
         Contact</a></button>
-    <button mat-menu-item>Sitmap</button>
-    <button mat-menu-item>Blog</button>
-    <button mat-menu-item>Press</button>
     <button mat-menu-item>Help</button>
-  </mat-menu>
-  <div class="texte">La digue du cul en revenant de Nantes (bis) De Nantes à Montaigu, La digue la digue De Nantes à Montaigu
-    La digue du cul Refrain : Lève la jambe, voilà qu’ça rentre Lève la cuisse, la cuisse, la cuisse Voilà qu’ça glisse Lève
-    la jambe, voilà qu’ça rentre Lève la cuisse, la cuisse, la cuisse Voilà qu’ça glisse Oh ! Hisse La digue du cul, je rencontre
-    une belle (bis) Qui dormait le cul nu La digue la digue Qui dormait le cul nu La digue du cul La digue du cul j'arme
-    mon arbalète (bis) Et j'lui fous droit dans le cul La digue la digue Et j'lui fout droit dans le cul La digue du cul
-  </div>
-  <div class="newsletter">
-    <p>If you want to received our newsletter, please insert your mail below</p>
-    <div class="formulaire">
-      <input type="text" placeholder="  mets ton Mail Connard !!">
+    <button mat-menu-item>Press</button>
+    <button mat-menu-item><a [routerLink]="['/searchpage']" routerLinkActive="active">
+        Recherche</a></button>
+    <button mat-menu-item>Sitmap</button>
 
-      <button class="sendNewsLetter">SEND</button>
+  </mat-menu>
+
+  <div class="container">
+    <div class="texte">Sur l’air de l’hymne national belge “la Brabançonne” <br>
+
+        Je me souviens, lorsque j’étais jeune fille,
+        D’un jeune garçon qui passait par bonheur
+        Il me trouva si jeune et si gentille
+        Qu’il me fit voir sa gross’pine en chaleur
+        Et tout d’un coup, sous mes jupons s’élance
+        L’énorme queue qu’il tenait à la main,
+        Il déchira mon voile d’innocence
+        Voilà pourquoi je me suis fait putain ! (ter)
+        
+        Je ne sais pas si j’étais déjà coquine
+        J’aimais déjà qu’on m’châtouillât l’bouton,
+        J’avais goûté de ce bon jus de pine,
+        J’avais reçu du foutre dans le con,
+        J’avais baisé, je n’étais plus pucelle,
+        Je chérissais le métier de putain,
+        Plus je baisais plus je devenais belle,
+        Voilà pourquoi je me suis fait putain ! (ter)
+    </div>
+    <div class="newsletter">
+      <p>If you want to received our newsletter,please insert your mail below</p>
+      <div class="formulaire">
+        <input class="champ" type="text" placeholder="  mets ton Mail Connard !!">
+
+        <button class="sendNewsLetter">SEND</button>
+      </div>
     </div>
   </div>
+  <div class="menu-horiz">
+    <ul>
+      <li><a [routerLink]="['/index']" routerLinkActive="active">
+          About us</a></li>
+      <li><a [routerLink]="['/conditions']" routerLinkActive="active">
+          Conditions</a></li>
+      <li><a [routerLink]="['/contact']" routerLinkActive="active" target="_blank">
+          Contact</a></li>
+      <li><a [routerLink]="['/sitemap']" routerLinkActive="active">
+          Sitemap</a></li>
+      <li><a [routerLink]="['/blog']" routerLinkActive="active">
+          Blog</a></li>
+      <li><a [routerLink]="['/press']" routerLinkActive="active">
+          Press</a></li>
+      <li><a [routerLink]="['/help']" routerLinkActive="active">
+          Help</a></li>
+      <li><a [routerLink]="['/searchpage']" routerLinkActive="active">
+          Recherche</a></li>
+    </ul>
+  </div>
   <div class="icons">
-    <img src="../../assets/public/images/033-facebook-1.png" alt="Facebook">
-    <img src="../../assets/public/images/034-twitter.png" alt="Twitter">
+    <a href="https://www.facebook.com/" target="_blank">
+      <img class="logo" src="../../assets/public/images/033-facebook-1.png" alt="Facebook">
+    </a>
+    <a href="https://twitter.com/" target="_blank">
+      <img class="logo" src="../../assets/public/images/034-twitter.png" alt="Twitter">
+    </a>
   </div>
 </div>

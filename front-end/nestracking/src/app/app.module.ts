@@ -24,6 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import {MatMenuModule} from '@angular/material/menu';
     DestinationComponent,
     MainComponent,
     ContactComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,22 +17,23 @@ export class SearchpageComponent implements OnInit {
     { Criteria: "Sell", ARROW: this.Arrows[1] }
   ];
   SelectedTriCriteria: string;
+  SelectedOrder = 0;
 Stars: number;
 PriceRange = '0/2000';
 FilterList = [{ 'key': 'CITY', 'value': "All"},
 {'key': 'COUNTRY', 'value': "All"},
-{'key': 'STARS', 'value': { $gt: 0}},
+{'key': 'STARS', 'value': { $gte: 0}},
 {'key': 'RESTAURANTS', 'value': "All"},
-{'key': 'Price', 'value': { $gt: 0 , $lt: 2000 }},
+{'key': 'Price', 'value': { $gte: 0 , $lt: 2000 }},
 {'key': 'Theme','value': "All"}];
   constructor(private httprequest: HTTPRequestService) {}
 
   ngOnInit() {}
 
-  Tri(Criteria: string) {
+  Tri(Criteria: string, Order:number) {
     console.log(Criteria);
     if (this.SelectedTriCriteria === Criteria) {
-
+      Order = 0 - Order;
       this.TriCriteria.map(element => {
 
         if (element.Criteria === Criteria && element.ARROW === this.Arrows[1]) {
@@ -49,7 +50,8 @@ FilterList = [{ 'key': 'CITY', 'value': "All"},
     } else {
       this.SelectedTriCriteria = Criteria;
     }
-    this.httprequest.Filtering( this.SelectedTriCriteria, this.FilterList);
+    this.SelectedOrder = Order;
+    this.httprequest.Filtering( this.SelectedTriCriteria, this.SelectedOrder, this.FilterList);
   }
 
   onKey(event: any, filter: string) { // without type info
@@ -64,6 +66,7 @@ FilterList = [{ 'key': 'CITY', 'value': "All"},
       this.FilterList[5].value = event.target.value;
       break;
     }
+    this.httprequest.Filtering( this.SelectedTriCriteria, this.SelectedOrder, this.FilterList);
    // HTTP REQUEST avec filter
    // reponse.filter((Lieu)=>{
    // Lieu.includes(CountrySearch)
@@ -76,21 +79,21 @@ FilterList = [{ 'key': 'CITY', 'value': "All"},
     } else {
       this.Stars = nbre;
     }
-    this.FilterList[2].value = { $gt: this.Stars };
+    this.FilterList[2].value = { $gte: this.Stars };
 
-    // HTTP REQUEST
+    this.httprequest.Filtering( this.SelectedTriCriteria, this.SelectedOrder, this.FilterList);
   }
 
   Price(NewPriceRange: any){
     this.PriceRange = NewPriceRange;
    NewPriceRange = NewPriceRange.split('/');
-   this.FilterList[4].value = { $gt: parseInt(NewPriceRange[0]) , $lt: parseInt(NewPriceRange[1]) };
+   this.FilterList[4].value = { $gte: parseInt(NewPriceRange[0]) , $lt: parseInt(NewPriceRange[1]) };
 
-    //HTTP REQUEST
+   this.httprequest.Filtering( this.SelectedTriCriteria, this.SelectedOrder, this.FilterList);
   }
 
   choose(value: string){
     this.FilterList[3].value = value;
-    ///HTTP REQUEST
+    this.httprequest.Filtering( this.SelectedTriCriteria, this.SelectedOrder, this.FilterList);
   }
 }

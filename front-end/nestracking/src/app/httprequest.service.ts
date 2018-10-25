@@ -8,21 +8,28 @@ export class HTTPRequestService {
 ServerAdress = "http://localhost:8014";
   constructor(private http: HttpClient) { }
 
-  Filtering(TriCriteria: string, FilterQuery: any, Dates?: string, Chamber?: string) {
+  Filtering(TriCriteria: string, Order: number, Filter: any, Dates?: string, Chamber?: string) {
     let params = new HttpParams();
+let ParsableFilter ="";
+    Filter.forEach(obj => {
+      if(obj.key === "STARS"){
+        ParsableFilter += '{"key":'+ `"${obj.key}"` + ',"value":{"$gte":' + `${obj.value.$gte}`+ '}},';
+      }else if(obj.key === "Price"){
+        ParsableFilter += '{"key":' + `"${obj.key}"` + ',"value":{"$gte":' + `${obj.value.$gte}` + ',"$lt":'+ `${obj.value.$lt}`+'}},';
+      }
+      else {
+        ParsableFilter += '{"key":' + `"${obj.key}"` + ',"value":' + `"${obj.value}"` + '},';
+      }
+    });
+    ParsableFilter = ParsableFilter.substr(0, ParsableFilter.length-1);
+    params = params.set('Filter', ParsableFilter);
 
-  FilterQuery = FilterQuery.map((obj)=>{
-   return JSON.stringify(obj);
-  })
-  FilterQuery.join('+');
-    console.log();
-
-
-    
-
-    params = params.set('Filter', 'bog');
-    params = params.set('Sort', TriCriteria);
-
+console.log(ParsableFilter);
+  if(TriCriteria === "" || TriCriteria === undefined){
+    params = params.set('Sort', "None");
+  }else{
+    params = params.set('Sort', TriCriteria + '/' + Order);
+  }
     if (Dates === undefined) {
       Dates = "None";
     }
@@ -36,8 +43,9 @@ ServerAdress = "http://localhost:8014";
 
     console.log(TriCriteria)
     console.log(Chamber)
-    this.http.get(this.ServerAdress + '/Filter', { params : params }).subscribe((reponse) => {
+    this.http.get(this.ServerAdress + '/Filter', { params: params }).subscribe((reponse) => {
       console.log(reponse);
+      return reponse;
     })
   }
 }

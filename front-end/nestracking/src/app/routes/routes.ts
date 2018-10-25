@@ -14,5 +14,5 @@ export const routes: Routes = [
     {path:'searchpage', component:SearchpageComponent},
     {path:'product', component:DestinationComponent},
     {path:'contact', component:ContactComponent},
-    { path: '**', component: PageNotFoundComponent  },
+    {path: '**', component: PageNotFoundComponent},
 ]

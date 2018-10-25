@@ -1,0 +1,141 @@
+@import '../../mixins';
+@import '../../variables';
+.searchBar{
+    width: 90%;
+    margin:auto;
+    background-color: #41B4AF;
+    padding:0.8em;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.gridContainer{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 1em; 
+    grid-row-gap: 0.5em;
+     
+    div{
+        text-align:center;
+        width: 100%;
+    }
+    .item1Country,.item2Number{
+        grid-column: 1 span;
+        grid-row: 1;
+        input{
+            width:98%;
+        }
+    }
+
+    .item3DateGo,.item4DateBack{
+        grid-column: 1 span;
+        grid-row: 2;
+        button{
+            width: 98%;
+        }
+       
+    }
+    .item5SubmitBtn{
+        grid-column: 1/2 span;
+        grid-row: 3;
+       
+    }
+}
+.themesFlexBox{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 520px;
+    @include breakpoint(screen, $iPadWidth){
+        min-height: 300px;
+        @include breakpoint(screen,$iPadProWidth){
+            flex-direction: row;
+        }
+    }
+    h1{
+        text-align: center;
+    }
+    .themesFlexBox1,.themesFlexBox2{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 240px;
+        h1{
+        text-align: center;
+        }
+        @include breakpoint(screen,$iPadWidth){
+            flex-direction: row;
+            min-width: 520px;
+            min-height: 220px;
+            @include breakpoint(screen,$iPadProWidth){
+                min-width: 450px;
+            }
+        }
+    }    
+}
+.theme1,.theme2,.theme3,.theme4{
+    height: 110px;
+    width: 192px;
+    overflow: hidden;
+    img{
+        display: block;
+        position: absolute;
+        z-index: 1;
+    }
+    h3{
+        display: block;
+        position: relative;
+        z-index: 100;
+        color:white;
+        top:35%;
+        text-align: center;
+        font-size: 2em;
+        background-color: rgba(0, 0, 0,0.3);
+    }
+
+}
+.bestPlacesFlexBox{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom:3em;
+    min-height: 350px;
+    @include breakpoint(screen,$iPadWidth){
+        flex-direction: row;
+        margin:0 3em 3em 3em;
+    }
+}
+.bestPlacesTitle,.themeTitle{
+    width: 80%;
+    margin:1em auto;
+    h1{
+        text-align: center;
+        color: grey;
+    }
+}
+
+.mostReserve,.mostViews{
+    height: 144px;
+    width: 256px;
+    overflow: hidden;
+    img{
+        display: block;
+        position: absolute;
+        z-index: 1;
+    }
+    h3{
+        display: block;
+        position: relative;
+        z-index: 100;
+        color:white;
+        top:50%;
+        text-align: center;
+        font-size: 1.5em;
+        background-color: rgba(0, 0, 0,0.3);
+        padding: 0.5em;
+        margin-bottom: 0;
+    }
+}

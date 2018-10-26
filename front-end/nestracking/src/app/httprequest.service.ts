@@ -36,8 +36,11 @@ ServerAdress = "http://localhost:8014";
 
     console.log(TriCriteria)
     console.log(Chamber)
+    // this.http.get(this.ServerAdress + '/Filter', { params : params }).subscribe((reponse) => {
+    //   console.log(reponse);
+    // })
     this.http.get(this.ServerAdress + '/Filter', { params : params }).subscribe((reponse) => {
-      console.log(reponse);
-    })
+        console.log(reponse);
+      })
   }
 }

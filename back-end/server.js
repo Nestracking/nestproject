@@ -18,7 +18,7 @@ app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(function (req, res, next) {
-    // res.setHeader( 'Access-Control-Allow-Origin', process.env.PORT);
+     res.setHeader( 'Access-Control-Allow-Origin', 'http://localhost:4200');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Accept,Accept-Language,Content-Language,Content-Type');
     res.setHeader('Access-Control-Expose-Headers', 'Content-Length,Content-Range');
@@ -27,12 +27,7 @@ app.use(function (req, res, next) {
 
 
 const Filter = require("./Controller/Filter.js")
-app.get("/Filter", function(req, res){
-    console.log(req.query);
-    console.log(req.params);
-    console.log(req.query.Filter);
-    console.log("-----------------------")
-});
+app.get("/Filter", Filter);
 
 const NewReservation = require("./Controller/NewReservation.js")
 app.post("/NewReservation", NewReservation);

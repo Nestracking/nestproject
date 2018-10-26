@@ -13,6 +13,9 @@
         background-image: url("../../assets/public/images/777.svg") ;
         background-repeat: no-repeat;
         background-size:  100% ;
+        @include breakpoint(screen, $iPadProWidth){
+            height: 520px;
+        }
     }
     .navBar{
         width: 100%;
@@ -26,6 +29,9 @@
                 width: 100%;
                 height: 160px;
                 background-color: rgba(0, 0, 0, 0.3);
+                @include breakpoint(screen,$iPadProWidth){
+                    height: 200px;
+                }
             }
         }
         .logoContenair{
@@ -38,9 +44,16 @@
             .imgLogoIcon{
                 height: 50px;
                 width: 80px;
+                padding-left:1em;
                 @include breakpoint(screen, $iPadWidth){
-                  height:12vh;
-                  width: 32vw
+                  height:140px;
+                  width: 200px;
+                  padding-left:2em;
+                  @include breakpoint(screen, $iPadProWidth){
+                    height:150px;
+                    width: 250px;
+                    padding-left:7em;
+                  }
                 }
             }
         }
@@ -53,6 +66,10 @@
             @include breakpoint (screen, $iPadWidth){
                 padding-top: 1em;
                 margin-right: 1em;
+                @include breakpoint(screen, $iPadProWidth){
+                    padding-top: 3em;
+                    margin-right: 5em;
+                  }
             }
             .navMenu{
                 visibility: hidden;
@@ -74,8 +91,12 @@
                 width: 22px;
                 height: 55px;
                 @include breakpoint (screen, $iPadWidth){
-                    width: 5vw;
-                    height:5vh;
+                    width: 44px;
+                    height:70px;
+                    @include breakpoint (screen, $iPadProWidth){
+                        width: 50px;
+                        height:70px;
+                    }
                 }
             }
             .imgMenu.mat-button{

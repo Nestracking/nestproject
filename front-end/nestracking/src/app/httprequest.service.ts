@@ -8,7 +8,20 @@ export class HTTPRequestService {
 ServerAdress = "http://localhost:8014";
   constructor(private http: HttpClient) { }
 
+  /**
+   * Cette méthode est appelée depuis XXX, et 
+   * est chargée de construire et exécuter la requête de filtrage/tri des réservations
+   * 
+   * @param TriCriteria 
+   * @param Order 
+   * @param Filter 
+   * @param Dates 
+   * @param Chamber 
+   */
   Filtering(TriCriteria: string, Order: number, Filter: any, Dates?: string, Chamber?: string) {
+
+    // Set query criterias
+
     let params = new HttpParams();
 let ParsableFilter ="";
     Filter.forEach(obj => {
@@ -23,6 +36,8 @@ let ParsableFilter ="";
     });
     ParsableFilter = ParsableFilter.substr(0, ParsableFilter.length-1);
     params = params.set('Filter', ParsableFilter);
+
+    // Set sort criterias
 
 console.log(ParsableFilter);
   if(TriCriteria === "" || TriCriteria === undefined){
@@ -40,21 +55,13 @@ console.log(ParsableFilter);
     }
    params = params.set('Chamber', Chamber);
 
-
     console.log(TriCriteria)
     console.log(Chamber)
-<<<<<<< HEAD
-    // this.http.get(this.ServerAdress + '/Filter', { params : params }).subscribe((reponse) => {
-    //   console.log(reponse);
-    // })
-    this.http.get(this.ServerAdress + '/Filter', { params : params }).subscribe((reponse) => {
-        console.log(reponse);
-      })
-=======
+
     this.http.get(this.ServerAdress + '/Filter', { params: params }).subscribe((reponse) => {
       console.log(reponse);
       return reponse;
     })
->>>>>>> bbb714a9460a1bf15fb30db036f00e4ad7c4aad1
+
   }
 }

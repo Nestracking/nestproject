@@ -1,12 +1,15 @@
 @import '../../mixins';
 @import '../../variables';
+
+// CSS de la barre de recherche avec des breakpoint mediaqueries pour le responsive
 .searchBar{
     width: 90%;
     margin:auto;
     background-color: #41B4AF;
     padding:0.8em;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    max-width: 920px;
 }
 .gridContainer{
     display:grid;
@@ -14,7 +17,13 @@
     grid-template-rows: 1fr 1fr 1fr;
     grid-column-gap: 1em; 
     grid-row-gap: 0.5em;
-     
+    justify-content: space-between;
+    
+    @include breakpoint(screen,$iPadProWidth){
+     grid-template-rows: 1fr;
+     grid-template-columns: repeat(4,1fr) 70px;
+     padding: 0 2em;
+    }
     div{
         text-align:center;
         width: 100%;
@@ -32,53 +41,57 @@
         grid-row: 2;
         button{
             width: 98%;
+            @include breakpoint(screen, $iPadProWidth){
+                width: 100%;
+            }
+        }
+        @include breakpoint(screen, $iPadProWidth){
+            grid-row: 1;
         }
        
     }
     .item5SubmitBtn{
         grid-column: 1/2 span;
         grid-row: 3;
-       
+        @include breakpoint(screen, $iPadProWidth){
+            grid-column: 1 span;
+            grid-row: 1;
+        }
     }
 }
+// Flex Box (pr les images sur la page d'ACCUEIL)--> contenant 2 div eux même en flex (why?pour gérer le responsive)
+
 .themesFlexBox{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 520px;
-    @include breakpoint(screen, $iPadWidth){
-        min-height: 300px;
-        @include breakpoint(screen,$iPadProWidth){
-            flex-direction: row;
-        }
-    }
-    h1{
-        text-align: center;
-    }
-    .themesFlexBox1,.themesFlexBox2{
-        display:flex;
-        flex-direction: column;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1em; 
+    grid-row-gap: 1em;
+    justify-content: space-between;
+    @include breakpoint(screen,$iPadWidth){
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-column-gap: 1em; 
+        grid-row-gap: 1em;
         justify-content: space-between;
-        align-items: center;
-        min-height: 240px;
-        h1{
-        text-align: center;
+        @include breakpoint(screen,$iPadProWidth){
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr ;
+            grid-template-rows: 1fr;
+            grid-column-gap: 1em; 
+            grid-row-gap: 1em;
+            justify-content: space-between;
         }
-        @include breakpoint(screen,$iPadWidth){
-            flex-direction: row;
-            min-width: 520px;
-            min-height: 220px;
-            @include breakpoint(screen,$iPadProWidth){
-                min-width: 450px;
-            }
-        }
-    }    
+    }
 }
 .theme1,.theme2,.theme3,.theme4{
     height: 110px;
     width: 192px;
     overflow: hidden;
+    grid-column: 1;
+    grid-row: 1 span;
+    margin: auto;
     img{
         display: block;
         position: absolute;
@@ -96,17 +109,31 @@
     }
 
 }
-.bestPlacesFlexBox{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom:3em;
-    min-height: 350px;
-    @include breakpoint(screen,$iPadWidth){
-        flex-direction: row;
-        margin:0 3em 3em 3em;
+.theme2{
+    @include breakpoint(screen,$iPadWidth){ 
+        grid-column: 2;
+        grid-row: 1 span;
     }
+}
+.theme3{
+    @include breakpoint(screen,$iPadWidth){ 
+        grid-column: 1;
+        grid-row: 2 span;
+        @include breakpoint(screen,$iPadProWidth){
+            grid-column: 3;
+            grid-row: 1 span;
+        }
+    }  
+}
+.theme4{
+    @include breakpoint(screen,$iPadWidth){ 
+        grid-column: 2;
+        grid-row: 2 span;
+        @include breakpoint(screen,$iPadProWidth){
+            grid-column: 4;
+            grid-row: 1 span;
+        }
+    } 
 }
 .bestPlacesTitle,.themeTitle{
     width: 80%;
@@ -116,11 +143,26 @@
         color: grey;
     }
 }
-
+.bestPlacesFlexBox{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 1em; 
+    grid-row-gap: 1em;
+    justify-content: space-between;
+    @include breakpoint(screen,$iPadWidth){ 
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr ;
+    } 
+   
+}
 .mostReserve,.mostViews{
     height: 144px;
     width: 256px;
     overflow: hidden;
+    grid-column: 1;
+    grid-row: 1 span;
+    margin: auto;
     img{
         display: block;
         position: absolute;
@@ -138,4 +180,10 @@
         padding: 0.5em;
         margin-bottom: 0;
     }
+}
+.mostViews{
+    @include breakpoint(screen,$iPadWidth){ 
+        grid-column: 2;
+        grid-row: 1 span;
+    } 
 }

@@ -15,7 +15,6 @@ import { IndexComponent } from './index/index.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
 import { DestinationComponent } from './destination/destination.component';
 import { routes } from './routes/routes';
-import { MainComponent } from './main/main.component';
 import { ContactComponent } from './contact/contact.component';
 
 /* MATERIAL MODULE */
@@ -37,7 +36,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     IndexComponent,
     SearchpageComponent,
     DestinationComponent,
-    MainComponent,
     ContactComponent,
     PageNotFoundComponent,
   ],

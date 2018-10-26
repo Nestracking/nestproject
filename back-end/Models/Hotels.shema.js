@@ -5,7 +5,7 @@ var schema = new mongoose.Schema({
             "$oid": String,
         },
         "SEGMENTATION": String,
-        "COMPANY 1": String,
+        "COMPANY1": String,
         "COMPANY 2": String,
         "STREET": String,
         "BUILDING": String,

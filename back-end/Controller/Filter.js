@@ -4,7 +4,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const HotelsModel = require("../Models/Hotels.shema");
 const Reservationchecking = require("./Reserved");
+
+/**
+ * This method filter reservations with parameters
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
 module.exports = async function (req, res) {
+    
     console.log(req);
     let FilterList = req.query.Filter;
 

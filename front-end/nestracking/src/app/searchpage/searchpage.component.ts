@@ -29,7 +29,8 @@ export class SearchpageComponent implements OnInit {
   // Une variable pour les étoiles
   PriceRange = "0/2000";
   // Une variable pour l'écart de prix.
-
+Chamber = 1;
+Dates = [];
   FilterList = [
     { key: "CITY", value: "All" },
     { key: "COUNTRY", value: "All" },

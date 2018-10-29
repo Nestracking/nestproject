@@ -23,7 +23,9 @@ ServerAdress = "http://localhost:8014";
     // Set query criterias
 
     let params = new HttpParams();
+    // On crée un params
 let ParsableFilter ="";
+// On créer une variable vide, params filter
     Filter.forEach(obj => {
       if(obj.key === "STARS"){
         ParsableFilter += '{"key":'+ `"${obj.key}"` + ',"value":{"$gte":' + `${obj.value.$gte}`+ '}},';
@@ -36,7 +38,7 @@ let ParsableFilter ="";
     });
     ParsableFilter = ParsableFilter.substr(0, ParsableFilter.length-1);
     params = params.set('Filter', ParsableFilter);
-
+// Les filtres sont sorti sous forme de prix et les intègre au params
     // Set sort criterias
 
 console.log(ParsableFilter);
@@ -45,6 +47,7 @@ console.log(ParsableFilter);
   }else{
     params = params.set('Sort', TriCriteria + '/' + Order);
   }
+  // On ajoute le critère de tri en params, s'il n'y en a pas, ça vaut none, sinon, on le parse en String
     if (Dates === undefined) {
       Dates = "None";
     }
@@ -53,8 +56,10 @@ console.log(ParsableFilter);
     if (Chamber === undefined) {
       Chamber = "None";
     }
-   params = params.set('Chamber', Chamber);
 
+
+   params = params.set('Chamber', Chamber);
+    // Si les variables ne sont pas la, elles valent None
     console.log(TriCriteria)
     console.log(Chamber)
 

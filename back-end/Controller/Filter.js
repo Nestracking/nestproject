@@ -12,30 +12,44 @@ const Reservationchecking = require("./Reserved");
  * @param {*} res 
  */
 module.exports = async function (req, res) {
-   // console.log(req);
+    // console.log(req);
     //let FilterList = req.query.Filter;
 
     console.log(req.query);
     FilterList = JSON.parse("[" + req.query.Filter + "]");
+    console.log(FilterList);
 
+    // On parse les Filter pour qu'ils se déployent en liste
 
-console.log(FilterList);
-    // Need to be an array of object
-    let Sortitem = req.query.Sort;
-    // Pas Encore occupé
-    // Need to be an object
-    let Dates = req.query.Dates;
-    // Need to be an array of Dates
-    let Chambers = req.query.Chambers;
-    // Need to be a number
     let queryFilter = {};
     FilterList.forEach(function (filters) {
         if (filters.value !== "All") {
             queryFilter[filters.key] = filters.value;
         }
     });
-    let DestinationList = await HotelsModel.find(queryFilter).sort();
-   //  DestinationList = await Reservationchecking(DestinationList, Dates, Chambers);
-   console.log(DestinationList)
+
+    // On build la Query pour les filtres à l'aide des valeurs dans la liste
+
+    let Splitter = req.query.Sort.split('/');
+    let SortItem = {};
+    SortItem[Splitter[0]] = Splitter[1];
+    console.log(SortItem);
+    // On transforme l'objet de tri en objet
+
+
+    let Dates = req.query.Dates;
+    // pour plus tard
+    // Need to be an array of Dates
+    let Chambers = req.query.Chambers;
+    // Pour plus tard
+    // Need to be a number
+
+    let DestinationList = await HotelsModel.find(queryFilter).sort(SortItem);
+    // Filtre DB
+
+    //  DestinationList = await Reservationchecking(DestinationList, Dates, Chambers);
+    console.log(DestinationList)
+
     res.json(DestinationList);
+    // On renvoie la liste
 }

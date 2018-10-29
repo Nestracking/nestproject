@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { HTTPRequestService } from "../httprequest.service";
+import { templateVisitAll } from "@angular/compiler";
+import { ActivatedRoute } from "@angular/router";
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+
 @Component({
   selector: "app-searchpage",
   templateUrl: "./searchpage.component.html",
@@ -30,7 +34,10 @@ export class SearchpageComponent implements OnInit {
   PriceRange = "0/2000";
   // Une variable pour l'écart de prix.
 Chamber = 1;
-Dates = [];
+DateStart: any;
+DateEnd: any;
+// Variable spéciale des chambres et dates 
+// Calendrier
   FilterList = [
     { key: "CITY", value: "All" },
     { key: "COUNTRY", value: "All" },
@@ -40,9 +47,20 @@ Dates = [];
     { key: "Theme", value: "All" }
   ];
   // La liste des filtres avec la valeur associé
-  constructor(private httprequest: HTTPRequestService) {}
 
-  ngOnInit() {}
+
+  constructor(private httprequest: HTTPRequestService,private route: ActivatedRoute) {}
+
+  ngOnInit() {
+let Params = this.route.snapshot.paramMap;
+if( Params.get("Country") !== null && Params.get("Chamber") !== null && Params.get("StartDate") !== null && Params.get("EndDate") !== null){
+this.FilterList[1].value = Params.get("Country");
+this.Chamber = parseInt(Params.get("Chamber"));
+this.DateStart = Params.get("StartDate");
+this.DateEnd = Params.get("EndDate");
+}
+console.log(this.Chamber);
+  }
 
   Tri(Criteria: string, Order: number) {
     // Quand on trie
@@ -69,7 +87,10 @@ Dates = [];
     this.httprequest.Filtering(
       this.SelectedTriCriteria,
       this.SelectedOrder,
-      this.FilterList
+      this.FilterList, 
+      this.Chamber,
+      this.DateStart,
+      this.DateEnd
     );
     // Requete DB
   }
@@ -87,13 +108,18 @@ Dates = [];
       case "Themes":
         this.FilterList[5].value = event.target.value;
         break;
+        case "Chamber":
+        this.Chamber = event.target.value;
     }
     // On change la valeur du filtre selon le type de filtre qu'on modifie
 
     this.httprequest.Filtering(
       this.SelectedTriCriteria,
       this.SelectedOrder,
-      this.FilterList
+      this.FilterList,
+      this.Chamber,
+      this.DateStart,
+      this.DateEnd
     );
     // Requete DB
 
@@ -104,6 +130,7 @@ Dates = [];
   }
 
   MyStars(nbre: number) {
+    console.log(this.DateEnd);
     // Quand on sélectionne une étoile
     if (this.Stars >= nbre) {
       this.Stars = nbre - 1;
@@ -117,7 +144,10 @@ Dates = [];
     this.httprequest.Filtering(
       this.SelectedTriCriteria,
       this.SelectedOrder,
-      this.FilterList
+      this.FilterList,
+      this.Chamber,
+      this.DateStart,
+      this.DateEnd
     );
   }
 
@@ -134,7 +164,10 @@ Dates = [];
     this.httprequest.Filtering(
       this.SelectedTriCriteria,
       this.SelectedOrder,
-      this.FilterList
+      this.FilterList,
+      this.Chamber,
+      this.DateStart,
+      this.DateEnd
     );
   }
 
@@ -145,7 +178,15 @@ Dates = [];
     this.httprequest.Filtering(
       this.SelectedTriCriteria,
       this.SelectedOrder,
-      this.FilterList
+      this.FilterList,
+      this.Chamber,
+      this.DateStart,
+      this.DateEnd
     );
   }
+
+  Date(type: string, event: MatDatepickerInputEvent<Date>) {
+    console.log(event.target.value + " <---> " + type)
+     }
+
 }

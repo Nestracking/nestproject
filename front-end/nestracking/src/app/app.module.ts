@@ -6,6 +6,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material'
 // COMPONENT
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -25,7 +27,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-
+// Provider
+import { HTTPRequestService } from "./httprequest.service";
 
 @NgModule({
   declarations: [
@@ -50,9 +53,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
-   
+   MatDatepickerModule,
+   MatNativeDateModule
   ],
-  providers: [],
+  providers: [HTTPRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,7 +18,7 @@ ServerAdress = "http://localhost:8014";
    * @param Dates 
    * @param Chamber 
    */
-  Filtering(TriCriteria: string, Order: number, Filter: any, Dates?: string, Chamber?: string) {
+  Filtering(TriCriteria: string, Order: number, Filter: any, Chamber: number, DateStart: any, DateEnd: any) {
 
     // Set query criterias
 
@@ -48,17 +48,11 @@ console.log(ParsableFilter);
     params = params.set('Sort', TriCriteria + '/' + Order);
   }
   // On ajoute le critère de tri en params, s'il n'y en a pas, ça vaut none, sinon, on le parse en String
-    if (Dates === undefined) {
-      Dates = "None";
-    }
-    params = params.set('Dates', Dates);
-
-    if (Chamber === undefined) {
-      Chamber = "None";
-    }
+    params = params.set('DateStart', DateStart)
+    params = params.set('DateEnd', DateEnd)
 
 
-   params = params.set('Chamber', Chamber);
+   params = params.set('Chamber', Chamber.toString());
     // Si les variables ne sont pas la, elles valent None
     console.log(TriCriteria)
     console.log(Chamber)

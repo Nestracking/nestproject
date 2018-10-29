@@ -10,9 +10,9 @@ import { PageNotFoundComponent } from "../page-not-found/page-not-found.componen
 export const routes: Routes = [
     {path:'',redirectTo:'index', pathMatch:'full'},
     {path:'index', component:IndexComponent},
-    {path:'searchbar', component:SearchbarComponent},
     {path:'searchpage', component:SearchpageComponent},
-    {path:'product', component:DestinationComponent},
+    {path:'searchpage/:Country/:Chamber/:StartDate/:EndDate', component:SearchpageComponent},
+    {path:'product/:id', component:DestinationComponent},
     {path:'contact', component:ContactComponent},
     {path: '**', component: PageNotFoundComponent},
 ]

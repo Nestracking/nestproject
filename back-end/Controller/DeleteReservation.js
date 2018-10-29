@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const ReservationsModel = require("../Models/Reservations.schema");
 
 module.exports = async function(req, res){
-    Tank.deleteOne({ "_id.$oid" : req.query.id }, function (err) {
+   ReservationsModel.deleteOne({ "_id.$oid" : req.query.id }, function (err) {
         if (err) return handleError(err);
         // deleted at most one tank document
       });

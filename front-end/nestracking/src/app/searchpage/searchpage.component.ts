@@ -55,9 +55,7 @@ Dates = [];
         if (element.Criteria === Criteria && element.ARROW === this.Arrows[1]) {
           element.ARROW = this.Arrows[0];
         } else if (
-          element.Criteria === Criteria &&
-          element.ARROW === this.Arrows[0]
-        ) {
+          element.Criteria === Criteria && element.ARROW === this.Arrows[0]) {
           element.ARROW = this.Arrows[1];
         }
       });

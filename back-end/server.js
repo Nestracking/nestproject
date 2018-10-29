@@ -29,8 +29,6 @@ app.use(function (req, res, next) {
 const Filter = require("./Controller/Filter.js")
 app.get("/Filter", Filter);
 
-const NewReservation = require("./Controller/NewReservation.js")
-app.post("/NewReservation", NewReservation);
 
 const DeleteReservation = require("./Controller/DeleteReservation.js");
 app.delete("/DeleteReservation", DeleteReservation);

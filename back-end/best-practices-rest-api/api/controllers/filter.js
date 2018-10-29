@@ -21,12 +21,12 @@ exports.filter = async function (req, res) {
 
 console.log(FilterList);
     // Need to be an array of object
-    let Sortitem = req.query.Sort;
+   // let Sortitem = req.query.Sort;
     // Pas Encore occupé
     // Need to be an object
-    let Dates = req.query.Dates;
+    //let Dates = req.query.Dates;
     // Need to be an array of Dates
-    let Chambers = req.query.Chambers;
+    //let Chambers = req.query.Chambers;
     // Need to be a number
     let queryFilter = {};
     FilterList.forEach(function (filters) {

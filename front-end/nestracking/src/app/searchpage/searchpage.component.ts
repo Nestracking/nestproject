@@ -85,9 +85,9 @@ console.log(this.Chamber);
     this.SelectedOrder = Order;
     // Ordre de l'objet sélectionner
     this.httprequest.Filtering(
+      this.FilterList,
       this.SelectedTriCriteria,
-      this.SelectedOrder,
-      this.FilterList, 
+      this.SelectedOrder, 
       this.Chamber,
       this.DateStart,
       this.DateEnd
@@ -114,9 +114,9 @@ console.log(this.Chamber);
     // On change la valeur du filtre selon le type de filtre qu'on modifie
 
     this.httprequest.Filtering(
+      this.FilterList,
       this.SelectedTriCriteria,
       this.SelectedOrder,
-      this.FilterList,
       this.Chamber,
       this.DateStart,
       this.DateEnd
@@ -142,9 +142,9 @@ console.log(this.Chamber);
     this.FilterList[2].value = { $gte: this.Stars };
     // On change la valeur dans l'objet
     this.httprequest.Filtering(
+      this.FilterList,
       this.SelectedTriCriteria,
       this.SelectedOrder,
-      this.FilterList,
       this.Chamber,
       this.DateStart,
       this.DateEnd
@@ -162,9 +162,9 @@ console.log(this.Chamber);
     };
     // On split les valeurs et les intègres dans le Filtre.
     this.httprequest.Filtering(
+      this.FilterList,
       this.SelectedTriCriteria,
       this.SelectedOrder,
-      this.FilterList,
       this.Chamber,
       this.DateStart,
       this.DateEnd
@@ -176,9 +176,9 @@ console.log(this.Chamber);
     this.FilterList[3].value = value;
     // La valeur change
     this.httprequest.Filtering(
+      this.FilterList,
       this.SelectedTriCriteria,
       this.SelectedOrder,
-      this.FilterList,
       this.Chamber,
       this.DateStart,
       this.DateEnd

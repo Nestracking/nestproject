@@ -3,7 +3,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
       HotelsModel = require("../models/Hotels.shema"), 
-      Reservationchecking = require('..helpers/reserved');
+      Reservationchecking = require('../helpers/reserved');
 
 /**
  * This method filter reservations with parameters

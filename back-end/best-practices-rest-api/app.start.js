@@ -1,6 +1,6 @@
-const app =  require('./app');
-
-const uri = "mongodb://Kaillens:wafwafmiaou-2@ds223009.mlab.com:23009/arnaudscieur";
+const app =  require('./app'),
+      mongoose = require('mongoose'),
+      uri = "mongodb://Kaillens:wafwafmiaou-2@ds223009.mlab.com:23009/arnaudscieur";
 
 const db = mongoose.connect(uri, function (err, response) {
     if (err) { console.log(err); }

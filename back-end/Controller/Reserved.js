@@ -12,6 +12,7 @@ module.export = (Hotels, Dates, NbreChambre) => {
         Dates.Foreach(async (Dates) => {
 
             Reservation = await ReservationsModel.find({ 'HotelID': Hotel._id.$oid, 'Date.start': Dates }, { "Chamber": 1, "_id.$oid": 0});
+            // Dates checker avec dates départs et dates fins.
             Reservation = await Reservation.reduce((sum, x) => sum + x);
             if (Reservation > BiggestReservation) {
                 BiggestReservation = Reservation;
@@ -22,5 +23,5 @@ module.export = (Hotels, Dates, NbreChambre) => {
             return Hotel;
         }
     });
-
+// return
 }

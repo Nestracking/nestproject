@@ -4,7 +4,7 @@
     
 
 // Router
-//     .route('/user')
+//     .route('/')
 //     .post(UserController.new)
 //     .delete(UserController.delete);
 

@@ -4,7 +4,7 @@ const Express = require('express'),
     
 
 Router
-    .route('/reserve')
+    .route('/')
     .post(ReserveController.new)
     .delete(ReserveController.delete);
 

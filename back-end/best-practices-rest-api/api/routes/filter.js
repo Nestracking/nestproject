@@ -4,7 +4,7 @@ const Express = require('express'),
     
 
 Router
-    .route('/filter')
+    .route('/')
     .get(FilterController.filter);
 
 module.exports = Router

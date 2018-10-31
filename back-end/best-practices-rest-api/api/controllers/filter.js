@@ -15,7 +15,7 @@ exports.filter = async function (req, res) {
    // console.log(req);
     //let FilterList = req.query.Filter;
 
-    console.log(req.query);
+    console.log('req.query',req.query);
     FilterList = JSON.parse("[" + req.query.Filter + "]");
 
 
@@ -36,6 +36,6 @@ console.log(FilterList);
     });
     let DestinationList = await HotelsModel.find(queryFilter).sort();
    //  DestinationList = await Reservationchecking(DestinationList, Dates, Chambers);
-   console.log(DestinationList)
+   console.log('DestinationList',DestinationList)
     res.json(DestinationList);
 }

@@ -12,8 +12,8 @@ export class IndexComponent implements OnInit {
   constructor(private httprequest: HTTPRequestService) { }
 
   ngOnInit() {
-    let themeSun= this.httprequest.Filtering([{key : "Theme", value: "love"}])
-    console.log(themeSun);
+    let themeSun= this.httprequest.Filtering([{key : "Views", value: "ALL"}],'Views',-1)
+    console.log('themesun',themeSun);
   }
 
   

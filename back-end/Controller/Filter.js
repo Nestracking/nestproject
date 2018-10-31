@@ -44,11 +44,11 @@ module.exports = async function (req, res) {
     // Pour plus tard
     // Need to be a number
 
-    let DestinationList = await HotelsModel.find(queryFilter).sort(SortItem);
+    console.log('waf')
+    let DestinationList = await HotelsModel.find({'Theme': { $in: ["sun"] }});
     // Filtre DB
 
     //  DestinationList = await Reservationchecking(DestinationList, Dates, Chambers);
-    console.log(DestinationList)
 
     res.json(DestinationList);
     // On renvoie la liste

@@ -17,13 +17,17 @@ exports.filter = async function (req, res) {
 
     console.log(req.query);
     FilterList = JSON.parse("[" + req.query.Filter + "]");
-
-
 console.log(FilterList);
-    // Need to be an array of object
-   // let Sortitem = req.query.Sort;
-    // Pas Encore occupé
-    // Need to be an object
+    // Liste des filtres7
+    let Sortitem = {};
+if (req.query.Sort !== "None"){
+    let temp= req.query.Sort.split('/');
+    console.log(temp);
+ Sortitem[temp[0]] = parseInt(temp[1]);
+}
+   
+   console.log(Sortitem);
+   
     //let Dates = req.query.Dates;
     // Need to be an array of Dates
     //let Chambers = req.query.Chambers;
@@ -34,8 +38,8 @@ console.log(FilterList);
             queryFilter[filters.key] = filters.value;
         }
     });
-    let DestinationList = await HotelsModel.find(queryFilter).sort();
+    let DestinationList = await HotelsModel.find(queryFilter).sort(Sortitem);
    //  DestinationList = await Reservationchecking(DestinationList, Dates, Chambers);
-   console.log(DestinationList)
+console.log(DestinationList);
     res.json(DestinationList);
 }

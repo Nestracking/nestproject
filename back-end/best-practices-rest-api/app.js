@@ -6,8 +6,7 @@ const express = require('express'),
       // UserRouter = require(`./api/routes/user`),
       // path = require("path"),
       // nodemailer = require("nodemailer"),
-
-
+      
 // Bodyparser 
 app.use(bodyParser());
 app.use(bodyParser.json({ limit: '10mb' }));
@@ -21,9 +20,6 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Expose-Headers', 'Content-Length,Content-Range');
     next();
 });
-
-
-
 
 // Set Router on
 // app.use('/user',UserRouter)

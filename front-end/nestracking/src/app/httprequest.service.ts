@@ -41,7 +41,7 @@ let ParsableFilter ="";
 // Les filtres sont sorti sous forme de prix et les intègre au params
     // Set sort criterias
 
-console.log(ParsableFilter);
+console.log('ParsableFilter',ParsableFilter);
   if(TriCriteria === "" || TriCriteria === undefined){
     params = params.set('Sort', "None");
   }else{
@@ -54,13 +54,10 @@ console.log(ParsableFilter);
    params = params.set('Chamber', Chamber.toString());
   }
     // Si les variables ne sont pas la, elles valent None
-    console.log(TriCriteria)
-    console.log(Chamber)
+    console.log('TriCriteria',TriCriteria)
+    console.log('Chamber',Chamber)
 
-    this.http.get(this.ServerAdress + '/filter/', { params: params }).subscribe((reponse) => {
-      console.log(reponse);
-      return reponse;
-    })
+   return this.http.get(this.ServerAdress + '/filter/', { params: params });
 
   }
 }

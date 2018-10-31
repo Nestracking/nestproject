@@ -15,7 +15,7 @@ exports.filter = async function (req, res) {
    // console.log(req);
     //let FilterList = req.query.Filter;
 
-    console.log(req.query);
+    console.log('req.query',req.query);
     FilterList = JSON.parse("[" + req.query.Filter + "]");
 console.log(FilterList);
     // Liste des filtres7

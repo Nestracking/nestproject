@@ -58,6 +58,15 @@ this.FilterList[1].value = Params.get("Country");
 this.Chamber = parseInt(Params.get("Chamber"));
 this.DateStart = Params.get("StartDate");
 this.DateEnd = Params.get("EndDate");
+
+this.httprequest.Filtering(
+  this.FilterList,
+  this.SelectedTriCriteria,
+  this.SelectedOrder, 
+  this.Chamber,
+  this.DateStart,
+  this.DateEnd
+).subscribe((reponse) => {console.log(reponse)});
 }
 console.log(this.Chamber);
   }
@@ -91,7 +100,7 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    );
+    ).subscribe((reponse) => {console.log(reponse)});
     // Requete DB
   }
 
@@ -120,7 +129,7 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    );
+    ).subscribe((reponse) => {console.log(reponse)});
     // Requete DB
 
     // HTTP REQUEST avec filter
@@ -148,7 +157,7 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    );
+    ).subscribe((reponse) => {console.log(reponse)});
   }
 
   Price(NewPriceRange: any) {
@@ -168,7 +177,7 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    );
+    ).subscribe((reponse) => {console.log(reponse)});
   }
 
   choose(value: string) {
@@ -182,7 +191,7 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    );
+    ).subscribe((reponse) => {console.log(reponse)});
   }
 
   Date(type: string, event: MatDatepickerInputEvent<Date>) {

@@ -57,10 +57,7 @@ console.log('ParsableFilter',ParsableFilter);
     console.log('TriCriteria',TriCriteria)
     console.log('Chamber',Chamber)
 
-    this.http.get(this.ServerAdress + '/filter/', { params: params }).subscribe((reponse) => {
-      console.log(reponse);
-      return reponse;
-    })
+   return this.http.get(this.ServerAdress + '/filter/', { params: params })
 
   }
 }

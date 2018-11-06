@@ -1,7 +1,7 @@
 <div id="Tri">
     <ul>
         <li class="TriOption" *ngFor="let Criteria of TriCriteria" (click)="Tri(Criteria.Criteria, Criteria.ARROW.Value)" [ngClass]="{selected: SelectedTriCriteria === Criteria.Criteria }">
-            <p>{{Criteria.Criteria}}</p><img class="ArrowSelect" src="{{Criteria.ARROW.URL}}">
+            <p class="TriCenter">{{Criteria.Criteria}}</p><img class="ArrowSelect" src="{{Criteria.ARROW.URL}}">
         </li>
     </ul>
 </div>
@@ -45,9 +45,7 @@
             <label>Themes</label>
 
             <div class="OneFilter">
-                <input type="text" name="Themes" value="Themes" (keyup)="onKey($event,'Themes')"><br>
-                <p>Click to delete one theme</p>
-                <p></p>
+                <input type="text" name="Themes" value="Themes" (keyup)="onKey($event,'Themes')">
                 <!-- On fera un *For pour l'affichage des themes-->
 </div>
                 <label>Chambers</label>
@@ -70,10 +68,18 @@
                     <mat-datepicker #Return></mat-datepicker>
               </mat-form-field>
 
+    </div>
 
 
         <div class="SearchResult">
-
+<div class="OneHotel"  *ngFor="let Hotel of ArrayOfHotels" (click)="GoToHotel(Hotel._id)" >
+<img class="Miniature" src="{{Hotel.Pictures[0]}}"> 
+<div class="OneHotelText">
+<h4> {{Hotel.COMPANY_1}}  {{Hotel.COMPANY_2}} </h4>
+<p class="LocationInfo">{{Hotel.STREET}} {{Hotel.POSTAL_CODE}} {{Hotel.CITY}} - {{Hotel.COUNTRY}}</p>
+<p class="LoremIpsum">Buck was a border Terrier, a pretty Border Terrier. Among all dogs, he was the best.</p>
+</div>    
+</div>
         </div>
-    </div>
+
 </section>

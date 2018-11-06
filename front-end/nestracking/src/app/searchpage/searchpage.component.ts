@@ -4,6 +4,7 @@ import { templateVisitAll } from "@angular/compiler";
 import { ActivatedRoute } from "@angular/router";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import * as moment from 'moment';
+import { Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: "app-searchpage",
@@ -49,8 +50,8 @@ DateEnd: any;
   ];
   // La liste des filtres avec la valeur associé
 
-
-  constructor(private httprequest: HTTPRequestService,private route: ActivatedRoute) {}
+ArrayOfHotels: any;
+  constructor(private httprequest: HTTPRequestService,private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
 let Params = this.route.snapshot.paramMap;
@@ -59,7 +60,7 @@ this.FilterList[1].value = Params.get("Country");
 this.Chamber = parseInt(Params.get("Chamber"));
 this.DateStart = Params.get("StartDate");
 this.DateEnd = Params.get("EndDate");
-
+}
 this.httprequest.Filtering(
   this.FilterList,
   this.SelectedTriCriteria,
@@ -67,8 +68,11 @@ this.httprequest.Filtering(
   this.Chamber,
   this.DateStart,
   this.DateEnd
-).subscribe((reponse) => {console.log(reponse)});
-}
+).subscribe((reponse) => {
+  console.log(reponse)
+  this.ArrayOfHotels = reponse;
+});
+
 console.log(this.Chamber);
   }
 
@@ -101,7 +105,10 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    ).subscribe((reponse) => {console.log(reponse)});
+    ).subscribe((reponse) => {
+      console.log(reponse)
+      this.ArrayOfHotels = reponse;
+    });
     // Requete DB
   }
 
@@ -130,7 +137,10 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    ).subscribe((reponse) => {console.log(reponse)});
+    ).subscribe((reponse) => {
+      console.log(reponse)
+      this.ArrayOfHotels = reponse;
+    });
     // Requete DB
 
     // HTTP REQUEST avec filter
@@ -140,7 +150,6 @@ console.log(this.Chamber);
   }
 
   MyStars(nbre: number) {
-    console.log(this.DateEnd);
     // Quand on sélectionne une étoile
     if (this.Stars >= nbre) {
       this.Stars = nbre - 1;
@@ -158,7 +167,10 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    ).subscribe((reponse) => {console.log(reponse)});
+    ).subscribe((reponse) => {
+      console.log(reponse)
+      this.ArrayOfHotels = reponse;
+    });
   }
 
   Price(NewPriceRange: any) {
@@ -178,7 +190,10 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    ).subscribe((reponse) => {console.log(reponse)});
+    ).subscribe((reponse) => {
+      console.log(reponse)
+      this.ArrayOfHotels = reponse;
+    });
   }
 
   choose(value: string) {
@@ -192,7 +207,10 @@ console.log(this.Chamber);
       this.Chamber,
       this.DateStart,
       this.DateEnd
-    ).subscribe((reponse) => {console.log(reponse)});
+    ).subscribe((reponse) => {
+      console.log(reponse)
+      this.ArrayOfHotels = reponse;
+    });
   }
 
   Date(type: string, event: MatDatepickerInputEvent<Date>) {
@@ -207,6 +225,11 @@ console.log(this.Chamber);
 this.DateEnd = moment(event.target.value).format("DD MM YYYY");
 // On utilise la librairie moment.js pour transformer la date de l'event en une string au format (Jour Mois Année)
     }
+     }
+
+     GoToHotel(id:string){
+       let OurRoute = "/product/" + id;
+      this.router.navigate([OurRoute]);
      }
 
 }

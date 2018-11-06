@@ -28,15 +28,18 @@ height: 80px;
 background-color: #3ab3b0;
 border-radius: 50px 50px 0px 0px;
 display: flex;
-align-content: center;
+
 flex-direction: column;
 justify-content: center;
+align-content: center;
+align-items:center;
 font-size: 35px;
 }
 
 #Tri p{
     padding: 0; 
-    margin : 0;     
+    margin : 0; 
+    align-self: center; 
 }
 
 .DownSideSearch{
@@ -71,7 +74,7 @@ Label{
 }
 .SearchResult{
 width: 65%;
-height: 800px;
+height: fit-content;
 }
 
 .TriOption{
@@ -106,4 +109,41 @@ margin-right: 10px;
 
 .FullStar{
     background-image: url('../../assets/public/images/FullStar.png')
+}
+
+.OneHotel{
+width: 92%;
+padding: 4%; 
+background-color: lightblue;
+display: flex;
+justify-content: space-around;
+margin-bottom: 25px;
+}
+
+.Miniature{
+width: 200px;
+height:150px;    
+margin-top: auto;
+margin-bottom: auto;
+}
+
+.OneHotelText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-left: 12px;
+}
+
+.h4{
+font-size: 24px;
+}
+.LocationInfo{
+margin: 0px;
+padding: 0px;
+
+}
+.OneHotelText p{
+    font-size:16px;
+    font-family: Calibri;
 }

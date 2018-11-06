@@ -13,7 +13,10 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     let themeSun= this.httprequest.Filtering([{key : "Views", value: "All"}],'Views',-1).subscribe((reponse) => {
-      console.log('reponse',reponse);      
+      reponse[0]
+      let t = 'URL 1'
+      console.log('reponse',reponse[0]);     
+     
     })
     
     console.log(themeSun);

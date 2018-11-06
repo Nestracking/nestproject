@@ -50,13 +50,13 @@
                 <p></p>
                 <!-- On fera un *For pour l'affichage des themes-->
 </div>
-                <label>Number of Chamber</label>
+                <label>Chambers</label>
                 <div class="OneFilter">
                     <input type="number" name="Chamber" value="Chamber" (keyup)="onKey($event,'Chamber')">
                 </div>
 <label>Departure</label>
                 <mat-form-field class="OneFilter">
-                        <input matInput [matDatepicker]="picker" placeholder="Departure ate"
+                        <input matInput [matDatepicker]="picker" placeholder="Departure Date"
                                (dateInput)="addEvent('input', $event)" (dateChange)="Date('Start', $event)">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>

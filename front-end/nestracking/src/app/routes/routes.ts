@@ -6,7 +6,6 @@ import { DestinationComponent } from '../destination/destination.component';
 import { ContactComponent } from "../contact/contact.component";
 import { PageNotFoundComponent } from "../page-not-found/page-not-found.component";
 
-
 export const routes: Routes = [
     {path:'',redirectTo:'index', pathMatch:'full'},
     {path:'index', component:IndexComponent},

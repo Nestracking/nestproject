@@ -29,6 +29,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 // Provider
 import { HTTPRequestService } from "./httprequest.service";
+import { ConnectionComponent } from './connection/connection.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { HTTPRequestService } from "./httprequest.service";
     DestinationComponent,
     ContactComponent,
     PageNotFoundComponent,
+    ConnectionComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,

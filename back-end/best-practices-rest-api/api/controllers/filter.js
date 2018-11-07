@@ -20,8 +20,9 @@ exports.filter = async function (req, res) {
 console.log(FilterList);
     // Liste des filtres7
     let Sortitem = {};
+    console.log(req.query.Sort);
 if (req.query.Sort !== "None"){
-    let temp= req.query.Sort.split('/');
+    let temp = req.query.Sort.split('/');
     console.log(temp);
  Sortitem[temp[0]] = parseInt(temp[1]);
 }

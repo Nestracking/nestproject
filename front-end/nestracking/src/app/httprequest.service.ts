@@ -42,6 +42,7 @@ let ParsableFilter ="";
     // Set sort criterias
 
 console.log('ParsableFilter',ParsableFilter);
+console.log(TriCriteria);
   if(TriCriteria === "" || TriCriteria === undefined){
     params = params.set('Sort', "None");
   }else{

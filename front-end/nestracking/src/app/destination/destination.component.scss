@@ -1,0 +1,189 @@
+@import "../../mixins";
+@import "../../variables";
+
+.searchBar{
+    width: 90%;
+    margin:auto;
+    background-color: #41B4AF;
+    padding:0.8em;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    max-width: 920px;
+ }
+ .gridContainer{
+    display:grid;
+    grid-template-columns: 1fr 1fr;//2colonnes
+    grid-template-rows: 1fr 1fr 1fr;//3lignes
+    grid-column-gap: 1em;//espace
+    grid-row-gap: 0.5em;//interligne
+    justify-content: space-between;//disposition
+ 
+    @include breakpoint(screen,$iPadProWidth){
+     grid-template-rows: 1fr;
+     grid-template-columns: repeat(4,1fr) 70px;
+     padding: 0 2em;
+    }
+    div{
+        text-align:center;
+        width: 100%;
+    }
+    .item1Country,.item2Number{
+        grid-column: 1 span;
+        grid-row: 1; //se trouve sur la première ligne
+        input{
+            width:98%;
+        }
+    }
+ 
+    .item3DateGo,.item4DateBack{
+        grid-column: 1 span;
+        grid-row: 2;
+        button{
+            width: 98%;
+            @include breakpoint(screen, $iPadProWidth){
+                width: 100%;
+            }
+        }
+        @include breakpoint(screen, $iPadProWidth){
+            grid-row: 1;
+        }
+ 
+    }
+    .item5SubmitBtn{
+        grid-column: 1/2 span;
+        grid-row: 3;
+        @include breakpoint(screen, $iPadProWidth){
+            grid-column: 1 span;
+            grid-row: 1;
+        }
+    }
+ }
+
+img{width: 90%;
+    margin:auto;
+    padding:0.8em;
+    max-width: 920px;
+
+}
+
+
+.details{
+    background-color:#DBDBDB;
+}
+
+.important{
+    font-weight: bold;
+    border-bottom-style: solid;
+    
+}
+.bigGrid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;//2colonnes
+    grid-template-rows: 1fr 1fr ;//2lignes
+    
+    
+    background-color:  #E7B460;
+ 
+}
+
+
+
+.apd{
+    background-color: #A6A8A5;
+    grid-column: 1 span;
+        grid-row: 1; 
+        text-align: center;
+
+}
+.pourcent{
+    background-color: #616161;
+    grid-column: 1 span;
+    grid-row: 1; 
+    text-align: center;
+    h3{height: 100%;}
+}
+.btnBook{
+    grid-column: 1/2 span;
+    grid-row: 2; 
+    
+}
+
+.themeTitle{
+    color:#70736B;
+    font-style: italic;
+}
+.btnBook{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+    button{
+    font-style: italic;
+    width: 50%;
+    height: 75%;
+    }
+}
+form {
+    /* Pour le centrer dans la page */
+    margin: 0 auto;
+    width: 400px;
+  
+    /* Pour voir les limites du formulaire */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+  }
+  
+  div + div {
+    margin-top: 1em;
+  }
+  
+  label {
+    /* Afin de s'assurer que toutes les étiquettes aient la même dimension et soient alignées correctement */
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+  }
+  
+  .postComment{input, textarea {
+    /* Afin de s'assurer que tous les champs textuels utilisent la même police
+       Par défaut, textarea utilise une police à espacement constant */
+    font: 1em sans-serif;
+  
+    /* Pour donner la même dimension à tous les champs textuels */
+    width: 300px;
+  
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+  
+    /* Pour harmoniser l'apparence des bordures des champs textuels */
+    border: 1px solid #999;
+  }
+  
+  input:focus, textarea:focus {
+    /* Afin de réhausser les éléments actifs */
+    border-color: #000;
+  }
+  
+  textarea {
+    /* Pour aligner correctement les champs multilignes et leurs étiquettes */
+    vertical-align: top;
+  
+    /* Pour donner assez d'espace pour entrer du texte */
+    height: 5em;
+  
+    /* Pour permettre aux utilisateurs de redimensionner un champ textuel horizontalement
+       Cela ne marche pas avec tous les navigateurs  */
+    resize: vertical;
+  }
+  
+  .push {
+    /* Pour positionner les boutons de la même manière que les champs textuels */
+    padding-left: 90px; /* même dimension que les étiquettes */
+  }
+  
+  .push {
+    /* Cette marge représente approximativement le même espace
+       que celui entre les étiquettes et les champs textuels */
+    margin-left: .5em;
+  }}

@@ -9,7 +9,7 @@
     padding:0.8em;
     border-top-left-radius: 35px;
     border-top-right-radius: 35px;
-    max-width: 920px;
+    max-width: $iPadProWidth;
 }
 .gridContainer{
     display:grid;
@@ -60,7 +60,16 @@
     }
 }
 // Flex Box (pr les images sur la page d'ACCUEIL)--> contenant 2 div eux même en flex (why?pour gérer le responsive)
-
+.destinationContainer{
+    max-width: $maxWidth;
+    margin: auto;
+    @include breakpoint(screen,$iPadWidth){
+        margin:2em auto;
+        @include breakpoint(screen,$iPadProWidth){
+            margin:5em auto;
+        }
+    }
+}
 .themesFlexBox{
     display:grid;
     grid-template-columns: 1fr;
@@ -92,10 +101,20 @@
     grid-column: 1;
     grid-row: 1 span;
     margin: auto;
+    @include breakpoint(screen, $iPadProWidth){
+        height: 135px;
+        width: 240px;
+    }
     img{
         display: block;
         position: absolute;
         z-index: 1;
+        height: 108px;
+        width: 192px;
+        @include breakpoint(screen, $iPadProWidth){
+            height: 135px;
+            width: 240px;
+        }
     }
     h3{
         display: block;
@@ -106,6 +125,9 @@
         text-align: center;
         font-size: 2em;
         background-color: rgba(0, 0, 0,0.3);
+        @include breakpoint(screen, $iPadProWidth){
+            top:50%;
+        }
     }
 
 }
@@ -163,10 +185,20 @@
     grid-column: 1;
     grid-row: 1 span;
     margin: auto;
+    @include breakpoint(screen, $iPadProWidth){
+        height: 288px;
+        width: 512px;
+    }
     img{
         display: block;
         position: absolute;
         z-index: 1;
+        height: 144px;
+        width: 256px;
+        @include breakpoint(screen, $iPadProWidth){
+            height: 288px;
+            width: 512px;
+        }
     }
     h3{
         display: block;
@@ -179,6 +211,11 @@
         background-color: rgba(0, 0, 0,0.3);
         padding: 0.5em;
         margin-bottom: 0;
+        @include breakpoint(screen, $iPadProWidth){
+            top:65%;
+            font-size: 2em;
+            padding: 0.5em;
+        }
     }
 }
 .mostViews{

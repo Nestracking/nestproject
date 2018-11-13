@@ -7,7 +7,6 @@ import { ContactComponent } from "../contact/contact.component";
 import { PageNotFoundComponent } from "../page-not-found/page-not-found.component";
 import { InscriptionComponent } from "../inscription/inscription.component";
 
-
 export const routes: Routes = [
     {path:'',redirectTo:'index', pathMatch:'full'},
     {path:'index', component:IndexComponent},

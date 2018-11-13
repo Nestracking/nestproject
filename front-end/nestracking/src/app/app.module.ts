@@ -31,7 +31,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HTTPRequestService } from "./httprequest.service";
 import { PasswordValidator } from './inscription/password.validator';
 
-
 @NgModule({
   declarations: [
     AppComponent,

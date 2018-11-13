@@ -18,7 +18,7 @@ import { SearchpageComponent } from './searchpage/searchpage.component';
 import { DestinationComponent } from './destination/destination.component';
 import { routes } from './routes/routes';
 import { ContactComponent } from './contact/contact.component';
-
+import { InscriptionComponent } from './inscription/inscription.component';
 /* MATERIAL MODULE */
 
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +29,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 // Provider
 import { HTTPRequestService } from "./httprequest.service";
+import { PasswordValidator } from './inscription/password.validator';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { HTTPRequestService } from "./httprequest.service";
     DestinationComponent,
     ContactComponent,
     PageNotFoundComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ import { HTTPRequestService } from "./httprequest.service";
    MatDatepickerModule,
    MatNativeDateModule
   ],
-  providers: [HTTPRequestService],
+  providers: [HTTPRequestService,PasswordValidator ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

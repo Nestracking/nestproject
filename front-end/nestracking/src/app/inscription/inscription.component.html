@@ -1,0 +1,44 @@
+<div class="inscriptionContainer">
+  <section class='inscritFormContent'>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" >
+
+      <mat-form-field>
+       <input 
+        type="text" 
+        matInput 
+        placeholder="user" 
+        [formControl]="loginForm.controls.user" >
+        <mat-error *ngIf="loginForm.controls.user.invalid">{{getErrorMessage('user')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input 
+       type="text" 
+       matInput 
+       placeholder="email" 
+       [formControl]="loginForm.controls.email">
+        <mat-error *ngIf="loginForm.controls.email.invalid">{{getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+       <input 
+       type="password" 
+       matInput 
+       placeholder="password" 
+       [formControl]="loginForm.controls.password">
+      <mat-error *ngIf="loginForm.controls.password.invalid">{{getErrorMessage('password')}}</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input 
+        type="password" 
+        matInput 
+        placeholder="confirm_passord" 
+        [formControl]="loginForm.controls.confirm_password">
+       <mat-error *ngIf="loginForm.controls.confirm_password.invalid">{{getErrorMessage('password')}}</mat-error>
+       </mat-form-field>
+     
+      <button  mat-raised-button color="primary" [disabled]="!loginForm.valid">Submit</button>
+    </form>
+  </section>
+</div>

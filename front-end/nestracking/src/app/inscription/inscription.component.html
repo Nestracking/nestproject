@@ -33,7 +33,7 @@
         <input 
         type="password" 
         matInput 
-        placeholder="confirm_passord" 
+        placeholder="confirm_password" 
         [formControl]="loginForm.controls.confirm_password">
        <mat-error *ngIf="loginForm.controls.confirm_password.invalid">{{getErrorMessage('confirm_password')}}</mat-error>
        </mat-form-field>
@@ -42,3 +42,4 @@
     </form>
   </section>
 </div>
+

@@ -15,26 +15,23 @@ export class InscriptionComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-
       user: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, Validators.compose([
-         Validators.minLength(6),
-        ])),
-      confirm_password: new FormControl(null, [Validators.required, PasswordValidator.areEqual])
-
-    }, 
-    (formGroup: FormGroup) => {
-      console.log(PasswordValidator.areEqual(formGroup).areEqual)
+      password: new FormControl('', Validators.compose([
+         Validators.minLength(5),
+         Validators.required,
+      ])),
+      confirm_password: new FormControl('', Validators.required)
+    }, (formGroup: FormGroup) => {
        return PasswordValidator.areEqual(formGroup);
     });
-    ;
+    
   }
 
 
   onSubmit(objValue) { 
     console.log(this.loginForm.valid);
-    console.log(objValue);
+    console.log('objValue',objValue);
   }
   getErrorMessage(formControlName : string): string {
     const errors : any= {
@@ -53,3 +50,5 @@ export class InscriptionComponent implements OnInit {
   }
 
 }
+
+

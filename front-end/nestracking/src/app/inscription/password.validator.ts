@@ -2,7 +2,7 @@ import { FormControl, FormGroup, NgForm, FormGroupDirective } from '@angular/for
 
 export class PasswordValidator {
   // Inspired on: http://plnkr.co/edit/Zcbg2T3tOxYmhxs7vaAm?p=preview
-  static areEqual(formGroup: FormGroup) {
+  public areEqual(formGroup: FormGroup) {
     console.log(formGroup);
     let mdp;
     let mdpc;
@@ -27,7 +27,9 @@ if(mdpc === mdp && mdp !== undefined){
 
 console.log(valid);
 
-
+    if (valid) {
+      return null;
+    }
 
     return {
       areEqual: true

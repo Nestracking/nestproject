@@ -21,7 +21,7 @@ export class InscriptionComponent implements OnInit {
       password: new FormControl(null, Validators.compose([
          Validators.minLength(6),
         ])),
-      confirm_password: new FormControl(null, [Validators.required, PasswordValidator(buck)])
+      confirm_password: new FormControl(null, [Validators.required, passwordvalidator.areEqual()])
 
     }, 
     (formGroup: FormGroup) => {

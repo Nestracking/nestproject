@@ -11,7 +11,7 @@ export class InscriptionComponent implements OnInit {
  
   loginForm : FormGroup; 
 
-  constructor(passwordvalidator : PasswordValidator) {}
+  constructor() {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -21,12 +21,14 @@ export class InscriptionComponent implements OnInit {
       password: new FormControl(null, Validators.compose([
          Validators.minLength(6),
         ])),
-      confirm_password: new FormControl(null, [Validators.required, passwordvalidator.areEqual()])
+      confirm_password: new FormControl(null, [Validators.required, PasswordValidator.areEqual])
 
     }, 
     (formGroup: FormGroup) => {
+      console.log(PasswordValidator.areEqual(formGroup).areEqual)
        return PasswordValidator.areEqual(formGroup);
     });
+    ;
   }
 
 
@@ -43,6 +45,7 @@ export class InscriptionComponent implements OnInit {
     }
     return Object.keys(this.loginForm.controls[formControlName].errors).reduce(
       (prev, current, currentIndex) => {
+
         return `${errors[current]}`;
       },''
     )

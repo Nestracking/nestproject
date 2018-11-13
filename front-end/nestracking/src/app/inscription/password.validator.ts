@@ -7,12 +7,17 @@ export class PasswordValidator {
     let valid = true;
     for (let key in formGroup.controls) {
       if (formGroup.controls.hasOwnProperty(key)) {
-        let control: FormControl = <FormControl>formGroup.controls[key];
-        console.log("control",control);
+        console.log('key :', key);
+        let control: FormControl = <FormControl>formGroup.controls["password"];
+        let confirmControl = <FormControl>formGroup.controls["confirm_password"];
+        console.log('congirmControl',confirmControl.value);
+        console.log("controls: ",formGroup.controls.hasOwnProperty(key));
+
         if (value === undefined) {
+          console.log('control.value',control.value);
           value = control.value
         } else {
-          if (value !== control.value) {
+          if (value !== confirmControl.value) {
             valid = false;
             break;
           }

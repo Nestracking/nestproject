@@ -17,11 +17,11 @@ export class InscriptionComponent implements OnInit {
     this.loginForm = new FormGroup({
       user: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.compose([
+      password: new FormControl(null, Validators.compose([
          Validators.minLength(5),
          Validators.required,
       ])),
-      confirm_password: new FormControl('', Validators.required)
+      confirm_password: new FormControl(null, Validators.required)
     }, (formGroup: FormGroup) => {
        return PasswordValidator.areEqual(formGroup);
     });

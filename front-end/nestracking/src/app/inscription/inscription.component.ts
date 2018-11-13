@@ -25,9 +25,13 @@ export class InscriptionComponent implements OnInit {
 
     }, 
     (formGroup: FormGroup) => {
+      console.log(PasswordValidator.areEqual(formGroup).areEqual)
        return PasswordValidator.areEqual(formGroup);
     });
+    ;
   }
+
+
   onSubmit(objValue) { 
     console.log(this.loginForm.valid);
     console.log(objValue);
@@ -36,15 +40,13 @@ export class InscriptionComponent implements OnInit {
     const errors : any= {
       required : "Le champs est requis",
       minlength: "Le champs doit contenir 6 caractères",
-      email : "Ce champs doit contenir un email valid",
+      email : "Ce champs doit contenir un email valide",
       areEqual:"Les mots de passe ne corespondent pas"
     }
     return Object.keys(this.loginForm.controls[formControlName].errors).reduce(
-      (prev, current, currentIndex) => { 
-        console.log(prev);
-        console.log(current);
-        console.log(currentIndex);
-        return `${prev} Rule ${currentIndex} - ${errors[current]}`;
+      (prev, current, currentIndex) => {
+
+        return `${errors[current]}`;
       },''
     )
        

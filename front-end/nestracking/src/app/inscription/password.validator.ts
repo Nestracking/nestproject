@@ -3,29 +3,40 @@ import { FormControl, FormGroup, NgForm, FormGroupDirective } from '@angular/for
 export class PasswordValidator {
   // Inspired on: http://plnkr.co/edit/Zcbg2T3tOxYmhxs7vaAm?p=preview
   static areEqual(formGroup: FormGroup) {
-    let value;
+    console.log(formGroup);
+    let mdp;
+    let mdpc;
     let valid = true;
+    
     for (let key in formGroup.controls) {
-      if (formGroup.controls.hasOwnProperty(key)) {
-        let control: FormControl = <FormControl>formGroup.controls[key];
+      if(key === "password" && formGroup.controls[key] !== undefined){
+        mdp = formGroup.controls[key].value;
+        console.log('mdp',mdp);
+      }
 
-        if (value === undefined) {
-          value = control.value
-        } else {
-          if (value !== control.value) {
-            valid = false;
-            break;
-          }
-        }
+      if(key === "confirm_password" && formGroup.controls[key] !== undefined){
+        mdpc = formGroup.controls[key].value;
+        console.log('mdpc',mdpc);
       }
     }
 
+    if(mdpc === mdp && mdp !== undefined){
+      valid = true;
+    }else{
+      valid = false;
+    }
+
+// console.log(valid);
+
     if (valid) {
-      return null;
+      return {
+        areEqual:true
+      }
     }
 
     return {
-      areEqual: true
+      areEqual: false
     };
+    // return true
   }
 }

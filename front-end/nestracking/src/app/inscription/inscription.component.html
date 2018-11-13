@@ -35,7 +35,7 @@
         matInput 
         placeholder="confirm_passord" 
         [formControl]="loginForm.controls.confirm_password">
-       <mat-error *ngIf="loginForm.controls.confirm_password.invalid">{{getErrorMessage('password')}}</mat-error>
+       <mat-error *ngIf="loginForm.controls.confirm_password.invalid">{{getErrorMessage('confirm_password')}}</mat-error>
        </mat-form-field>
      
       <button  mat-raised-button color="primary" [disabled]="!loginForm.valid">Submit</button>

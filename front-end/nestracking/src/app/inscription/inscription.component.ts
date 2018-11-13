@@ -11,7 +11,7 @@ export class InscriptionComponent implements OnInit {
  
   loginForm : FormGroup; 
 
-  constructor() {}
+  constructor(passwordvalidator : PasswordValidator) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -20,16 +20,16 @@ export class InscriptionComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.compose([
          Validators.minLength(6),
-         Validators.required,
-         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
         ])),
-      confirm_password: new FormControl(null, [Validators.required, PasswordValidator.areEqual])
+      confirm_password: new FormControl(null, [Validators.required, PasswordValidator(buck)])
 
     }, 
     (formGroup: FormGroup) => {
        return PasswordValidator.areEqual(formGroup);
     });
   }
+
+
   onSubmit(objValue) { 
     console.log(this.loginForm.valid);
     console.log(objValue);
@@ -38,15 +38,12 @@ export class InscriptionComponent implements OnInit {
     const errors : any= {
       required : "Le champs est requis",
       minlength: "Le champs doit contenir 6 caractères",
-      email : "Ce champs doit contenir un email valid",
+      email : "Ce champs doit contenir un email valide",
       areEqual:"Les mots de passe ne corespondent pas"
     }
     return Object.keys(this.loginForm.controls[formControlName].errors).reduce(
-      (prev, current, currentIndex) => { 
-        console.log(prev);
-        console.log(current);
-        console.log(currentIndex);
-        return `${prev} Rule ${currentIndex} - ${errors[current]}`;
+      (prev, current, currentIndex) => {
+        return `${errors[current]}`;
       },''
     )
        

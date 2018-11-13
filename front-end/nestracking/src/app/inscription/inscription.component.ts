@@ -20,8 +20,6 @@ export class InscriptionComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.compose([
          Validators.minLength(6),
-         Validators.required,
-         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
         ])),
       confirm_password: new FormControl(null, [Validators.required, PasswordValidator.areEqual])
 

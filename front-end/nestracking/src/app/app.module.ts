@@ -6,8 +6,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material'
 // COMPONENT
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -24,7 +24,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 // Provider
@@ -55,10 +55,10 @@ import { PasswordValidator } from './inscription/password.validator';
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
-   MatDatepickerModule,
-   MatNativeDateModule
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [HTTPRequestService,PasswordValidator ],
+  providers: [HTTPRequestService, PasswordValidator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

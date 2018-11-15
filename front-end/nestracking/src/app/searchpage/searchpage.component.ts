@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HTTPRequestService } from "../httprequest.service";
 import { templateVisitAll } from "@angular/compiler";
 import { ActivatedRoute } from "@angular/router";
-import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import * as moment from 'moment';
 import { Router, ParamMap } from '@angular/router';
 
@@ -35,11 +35,11 @@ export class SearchpageComponent implements OnInit {
   // Une variable pour les étoiles
   PriceRange = "0/2000";
   // Une variable pour l'écart de prix.
-Chamber = 1;
-DateStart: any;
-DateEnd: any;
-// Variable spéciale des chambres et dates 
-// Calendrier
+  Chamber = 1;
+  DateStart: any;
+  DateEnd: any;
+  // Variable spéciale des chambres et dates 
+  // Calendrier
   FilterList = [
     { key: "CITY", value: "All" },
     { key: "COUNTRY", value: "All" },
@@ -50,30 +50,30 @@ DateEnd: any;
   ];
   // La liste des filtres avec la valeur associé
 
-ArrayOfHotels: any;
-  constructor(private httprequest: HTTPRequestService,private route: ActivatedRoute, private router: Router) {}
+  ArrayOfHotels: any;
+  constructor(private httprequest: HTTPRequestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-let Params = this.route.snapshot.paramMap;
-if( Params.get("Country") !== null && Params.get("Chamber") !== null && Params.get("StartDate") !== null && Params.get("EndDate") !== null){
-this.FilterList[1].value = Params.get("Country");
-this.Chamber = parseInt(Params.get("Chamber"));
-this.DateStart = Params.get("StartDate");
-this.DateEnd = Params.get("EndDate");
-}
-this.httprequest.Filtering(
-  this.FilterList,
-  this.SelectedTriCriteria,
-  this.SelectedOrder, 
-  this.Chamber,
-  this.DateStart,
-  this.DateEnd
-).subscribe((reponse) => {
-  console.log(reponse)
-  this.ArrayOfHotels = reponse;
-});
+    let Params = this.route.snapshot.paramMap;
+    if (Params.get("Country") !== null && Params.get("Chamber") !== null && Params.get("StartDate") !== null && Params.get("EndDate") !== null) {
+      this.FilterList[1].value = Params.get("Country");
+      this.Chamber = parseInt(Params.get("Chamber"));
+      this.DateStart = Params.get("StartDate");
+      this.DateEnd = Params.get("EndDate");
+    }
+    this.httprequest.Filtering(
+      this.FilterList,
+      this.SelectedTriCriteria,
+      this.SelectedOrder,
+      this.Chamber,
+      this.DateStart,
+      this.DateEnd
+    ).subscribe((reponse) => {
+      console.log(reponse)
+      this.ArrayOfHotels = reponse;
+    });
 
-console.log(this.Chamber);
+    console.log(this.Chamber);
   }
 
   Tri(Criteria: string, Order: number) {
@@ -101,7 +101,7 @@ console.log(this.Chamber);
     this.httprequest.Filtering(
       this.FilterList,
       this.SelectedTriCriteria,
-      this.SelectedOrder, 
+      this.SelectedOrder,
       this.Chamber,
       this.DateStart,
       this.DateEnd
@@ -125,7 +125,7 @@ console.log(this.Chamber);
       case "Themes":
         this.FilterList[5].value = event.target.value;
         break;
-        case "Chamber":
+      case "Chamber":
         this.Chamber = event.target.value;
     }
     // On change la valeur du filtre selon le type de filtre qu'on modifie
@@ -216,20 +216,20 @@ console.log(this.Chamber);
   Date(type: string, event: MatDatepickerInputEvent<Date>) {
     // On récupère une string qui nous dit s'il s'agit de la date de début ou de la date de fin.
     // On récupère également la valeur de la date
-    if(type === "Start"){
+    if (type === "Start") {
       this.DateStart = moment(event.target.value).format("DD MM YYYY");
       // On utilise la librairie moment.js pour transformer la date de l'event en une string au format (Jour Mois Année)
     }
-    
-    if(type === "End"){
-this.DateEnd = moment(event.target.value).format("DD MM YYYY");
-// On utilise la librairie moment.js pour transformer la date de l'event en une string au format (Jour Mois Année)
-    }
-     }
 
-     GoToHotel(id:string){
-       let OurRoute = "/product/" + id;
-      this.router.navigate([OurRoute]);
-     }
+    if (type === "End") {
+      this.DateEnd = moment(event.target.value).format("DD MM YYYY");
+      // On utilise la librairie moment.js pour transformer la date de l'event en une string au format (Jour Mois Année)
+    }
+  }
+
+  GoToHotel(id: string) {
+    let OurRoute = "/product/" + id;
+    this.router.navigate([OurRoute]);
+  }
 
 }

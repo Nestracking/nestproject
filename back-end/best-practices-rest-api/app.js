@@ -3,13 +3,13 @@ const express = require('express'),
       app = express(),
       ReserveRouter = require(`./api/routes/reserve`),
       FilterRouter = require(`./api/routes/filter`);
-      // UserRouter = require(`./api/routes/user`),
+      UserRouter = require(`./api/routes/user`),
       // path = require("path"),
       // nodemailer = require("nodemailer"),
       
 // Bodyparser 
 app.use(bodyParser());
-app.use(bodyParser.json({ limit: '10mb' }));
+// app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Authorisations
@@ -22,7 +22,7 @@ app.use(function (req, res, next) {
 });
 
 // Set Router on
-// app.use('/user',UserRouter)
+app.use('/user',UserRouter)
 // Set Router on
 app.use('/reserve', ReserveRouter)
 // Set Router on 

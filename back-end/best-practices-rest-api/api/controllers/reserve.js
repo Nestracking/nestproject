@@ -28,6 +28,7 @@ exports.delete = async function (req, res, next){
         if (err) return handleError(err);
         // deleted at most one tank document
       });
+      res.send("Nous avons supprimé notre réservation")
 }
 
 

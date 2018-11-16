@@ -46,7 +46,7 @@ export class InscriptionComponent implements OnInit {
         console.log(prev);
         console.log(current);
         console.log(currentIndex);
-        return `${prev} Rule ${currentIndex} - ${errors[current]}`;
+        return `${prev}  ${errors[current]}`;
       },''
     )
        

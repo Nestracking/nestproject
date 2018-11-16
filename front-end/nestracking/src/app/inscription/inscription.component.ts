@@ -74,9 +74,11 @@ export class InscriptionComponent implements OnInit {
       console.log('object', this.loginForm.controls['confirm_password'].valid);
     }
     return Object.keys(this.loginForm.controls[formControlName].errors).reduce(
-      (prev, current, currentIndex) => {
-
-        return `${errors[current]}`;
+      (prev, current, currentIndex) => { 
+        console.log(prev);
+        console.log(current);
+        console.log(currentIndex);
+        return `${prev}  ${errors[current]}`;
       },''
       )
 

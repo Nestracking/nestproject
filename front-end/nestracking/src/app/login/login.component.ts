@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from '@angular/forms';
-import { PasswordValidator } from './password.validator';
+
 import { HTTPRequestService } from '../httprequest.service';
 import { Router, ParamMap } from '@angular/router';
+
 @Component({
-  selector: 'app-inscription',
-  templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class InscriptionComponent implements OnInit {
- 
+export class LoginComponent implements OnInit {
+
   loginForm : FormGroup; 
-  parent: AbstractControl;
-  // equal;
+  
+
   constructor(private httprequest: HTTPRequestService, private router: Router) {
 
   }
@@ -25,31 +26,27 @@ export class InscriptionComponent implements OnInit {
         Validators.maxLength(25),
         Validators.required,
       ])),
-      email: new FormControl(null, [Validators.required, Validators.email]),
+    
       password: new FormControl(null, Validators.compose([
          Validators.minLength(5),
          Validators.required,
       ])),
       
-      confirm_password: new FormControl(null,Validators.required)
-    }, (formGroup: FormGroup) => {
-           
-       return PasswordValidator.areEqual(formGroup);
+      
     });
   }
 
   onSubmit(objValue) { 
-    this.httprequest.UserCreate(objValue).subscribe( response => { 
-      let rep: any = response;
-      console.log(rep);
-      if(rep.Send){
-        alert(rep.Send)
-        let accueil :string = '/'
-        this.router.navigate([accueil])
-      } else {
-         alert(rep.Error);
-      }
-      
+    this.httprequest.UserConnect(objValue).subscribe( response => { 
+      // let rep: any = response;
+      // if(rep.Send.length === 38){
+      //   alert(rep.Send)
+      //   let accueil :string = '/'
+      //   this.router.navigate([accueil])
+      // } else {
+      //    alert(rep.Error);
+      // }
+      console.log('RPS LOGIN:',response);
     })
   }
   getErrorMessage(formControlName : string): string {
@@ -72,5 +69,3 @@ export class InscriptionComponent implements OnInit {
 
   }
 }
-
-

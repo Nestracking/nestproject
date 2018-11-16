@@ -1,0 +1,27 @@
+<div class="inscriptionContainer">
+  <section class='inscritFormContent'>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" >
+      <mat-form-field class="input-user">
+       <input 
+        type="text"
+        matInput 
+        placeholder="user" 
+        [formControl]="loginForm.controls.user" >
+        <mat-error *ngIf="loginForm.controls.user.invalid">{{getErrorMessage('user')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input-password">
+       <input 
+       type="password" 
+       matInput 
+       placeholder="password" 
+       [formControl]="loginForm.controls.password">
+      <mat-error *ngIf="loginForm.controls.password.invalid">{{getErrorMessage('password')}}</mat-error>
+      </mat-form-field>
+    
+     
+      <button class="mat-button-wrapper"  mat-raised-button color="primary" [disabled]="!loginForm.valid">Submit</button>
+    </form>
+  </section>
+</div>
+

@@ -45,7 +45,7 @@ exports.createUser = async function (req, res) {
 }
 
 exports.connectuser = async function (req, res){
-let ConnectionInfo = req.query.ConnectionInfo;
+let ConnectionInfo = req.body;
 
 /// Parsing
 

@@ -61,4 +61,10 @@ console.log(TriCriteria);
    return this.http.get(this.ServerAdress + '/filter/', { params: params });
 
   }
+// ------USER REQUESTS--------------
+UserCreate(userDatas){
+  console.log(userDatas);
+  return this.http.post(this.ServerAdress + '/user/', userDatas)
+}
+
 }

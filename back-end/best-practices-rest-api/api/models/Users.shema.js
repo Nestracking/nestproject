@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 var schema = new mongoose.Schema({
         "Name" : String,
         "Password": String,
+        "Email":String,
         "UserRatings": [{
         "HotelID": String,
         "Rating": Number,

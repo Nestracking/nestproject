@@ -3,7 +3,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
       ReservationsModel = require("../models/Reservations.schema"),
-      UserModel = require("../models/Users");
+      UserModel = require('../models/Users.shema');
 
       /**
  * This method filter reservations with parameters
@@ -11,27 +11,33 @@ const express = require('express'),
  * @param {*} req 
  * @param {*} res 
  */
-exports.createuser = async function (req, res) {
-let UserInfos = req.query.user;
-// On récupère les données
+exports.createUser = async function (req, res) {
 
-// Parsing à faire
+    // console.log('REQ',req);
+    UserInfos = req.body;
+    console.log(UserInfos);
+    // On récupère les données
 
-let UserFind = await UserModel.find({ 'Name' : UserInfos.Name}, {Password: 1});
-// On cherche si on a des User avec ce nom
-if(UserFind === []){
+    // Parsing à faire
+
+    let UserFind = await UserModel.find({ 'Name' : UserInfos.user}, {Password: 1}, {Email:1});
+    // On cherche si on a des User avec ce nom
+    console.log(UserFind);
+    if(UserFind.length === 0){
     // S'il n'y en a pas on créer l'user
-UserModel.create({
-'Name': UserInfos.Name,
-'Password': UserInfos.Password
-}, function (err, newuser){
-    if(err) return handleError(err)
-});
-res("Votre compte a bel et bien été créer !")
-}else{
+     
+    UserModel.create({
+        'Name': UserInfos.user,
+        'Password': UserInfos.password,
+        'Email': UserInfos.email
+    }, function (err, newuser){
+            if(err) return handleError(err)
+        });
+        res.send("Votre compte a bel et bien été créer !")
+    }else{
     // Sinon, on renvoye un message.
-res("Ce Nom est déja pris !")
-}
+    res.json({Error :"Ce Nom est déja pris !"})
+    }
 
 }
 

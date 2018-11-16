@@ -82,6 +82,6 @@ res.json(JWT);
 }else if(UserFind = []){
 res.json({Error: "L'utilisateur n'existe pas"})
 } else {
-res({Error : "Le mot de passe est incorrect, arrêtez d'essayer de vous connectez sur le compte d'un autre !"})    
+res.json({Error : "Le mot de passe est incorrect, arrêtez d'essayer de vous connectez sur le compte d'un autre !"})    
 }
 }

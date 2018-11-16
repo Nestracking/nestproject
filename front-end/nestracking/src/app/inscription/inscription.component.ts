@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { PasswordValidator } from './password.validator';
 import { HTTPRequestService } from '../httprequest.service';
-
+import { Router, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -13,7 +13,7 @@ export class InscriptionComponent implements OnInit {
   loginForm : FormGroup; 
   parent: AbstractControl;
   // equal;
-  constructor(private httprequest: HTTPRequestService) {
+  constructor(private httprequest: HTTPRequestService, private router: Router) {
 
   }
 
@@ -45,8 +45,20 @@ export class InscriptionComponent implements OnInit {
   onSubmit(objValue) { 
     this.httprequest.UserCreate(objValue).subscribe( response => { 
       console.log('response: ', response);
+      let userCreated = "Votre compte a bel et bien été créer !";
       let rep: any = response;
-      alert(rep.Error);
+      console.log(rep.Send);
+      console.log(rep.Send.length);
+      if(rep.Send.length === 38){
+        console.log('Send Clg');
+        alert(rep.Send)
+        let accueil :string = '/'
+        this.router.navigate([accueil])
+      } else {
+        
+         alert(rep.Error);
+      }
+      
     })
   }
   getErrorMessage(formControlName : string): string {

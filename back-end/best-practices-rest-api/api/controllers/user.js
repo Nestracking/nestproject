@@ -33,7 +33,7 @@ exports.createUser = async function (req, res) {
     }, function (err, newuser){
             if(err) return handleError(err)
         });
-        res.send("Votre compte a bel et bien été créer !")
+        res.json({Send: "Votre compte a bel et bien été créer !"})
     }else{
     // Sinon, on renvoye un message.
     res.json({Error :"Ce Nom est déja pris !"})

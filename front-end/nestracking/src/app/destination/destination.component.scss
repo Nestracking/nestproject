@@ -4,6 +4,8 @@
 .searchBar{
     width: 90%;
     margin:auto;
+    margin-left: none;
+    margin-right:none;
     background-color: #41B4AF;
     padding:0.8em;
     border-top-left-radius: 35px;
@@ -62,36 +64,61 @@
 
 img{width: 90%;
     margin:auto;
-    padding:0.8em;
+    padding:none;
     max-width: 920px;
 
 }
-p {
-    padding: 1em;
+.theme1{margin-left: 66px;
+}
+
+
+.first{font-style: italic;
+    color:#616161;
+    margin-left: 66px;
+    margin-right: 66px;
 }
 
 
 .details{
     background-color:#DBDBDB;
+    color:#616161;
+    margin: 66px;
+    padding-top: 66px;
+    padding-bottom: 66px;
+   
+    
+}
+
+.suite {
+    margin: 66px;
+    
 }
 
 .important{
     font-weight: bold;
     border-bottom-style: solid;
+    font-style: italic;
+    color:#616161;
+    margin-left: 66px;
+    margin-right: 66px;
+    padding-bottom: 66px;
     
 }
 .bigGrid{
     display:grid;
     grid-template-columns: 1fr 1fr;//2colonnes
     grid-template-rows: 1fr 1fr ;//2lignes
-    margin: 1em;
+    margin: 66px;
     
     
     background-color:  #E7B460;
  
 }
 
+.themTitle{
+    padding-left: 66px;
 
+}
 
 .apd{
     background-color: #A6A8A5;
@@ -116,6 +143,7 @@ p {
 .themeTitle{
     color:#70736B;
     font-style: italic;
+    padding-left: 66px;
 }
 .btnBook{
     width: 50%;
@@ -142,24 +170,25 @@ form {
   }
   
 /*   div + div {
-    margin-top: 1em;
+    margin-top: 1em
   } */
   
   /* label {
     Afin de s'assurer que toutes les étiquettes aient la même dimension et soient alignées correctement
     display: inline-block;
     width: 90px;
+    /* Pour donner la même dimension à tous les champs textuels */
+   /*
+    width: 300px;
+    -moz-box-sizing: border-box;
     text-align: right;
-  }*/
+  };*/
+
   .postComment{input, textarea {
     /* Afin de s'assurer que tous les champs textuels utilisent la même police
        Par défaut, textarea utilise une police à espacement constant */
     font: 1em sans-serif;
   
-    /* Pour donner la même dimension à tous les champs textuels */
-    width: 300px;
-  
-    -moz-box-sizing: border-box;
          box-sizing: border-box;
   
     /* Pour harmoniser l'apparence des bordures des champs textuels */
@@ -193,8 +222,9 @@ form {
        que celui entre les étiquettes et les champs textuels */
     margin-left: .5em;
   }}
-
-
+.navbarContainer{
+    margin:66px;
+}
 
 
   ul.topnav {

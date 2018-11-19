@@ -1,0 +1,72 @@
+@import '../../mixins';
+@import '../../variables';
+
+// CSS de la barre de recherche avec des breakpoint mediaqueries pour le responsive
+.searchBar{
+    width: 90%;
+    margin:auto;
+    background-color: #41B4AF;
+    padding:0.8em;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    max-width: $iPadProWidth;
+}
+.gridContainer{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 1em; 
+    grid-row-gap: 0.5em;
+    justify-content: space-between;
+    
+    @include breakpoint(screen,$iPadProWidth){
+     grid-template-rows: 1fr;
+     grid-template-columns: repeat(4,1fr) 70px;
+     padding: 0 2em;
+    }
+    div{
+        text-align:center;
+        width: 100%;
+    }
+    .item1Country,.item2Number{
+        grid-column: 1 span;
+        grid-row: 1;
+        padding-top:6px;
+        input{
+            width:98%;
+        }
+    }
+
+    .item3DateGo,.item4DateBack{
+        grid-column: 1 span;
+        grid-row: 2;
+        height: 30px;
+        input{
+            background-color: white;    
+            }
+        .mat-form-field-infix{
+            background-color:white;
+            padding: 0;
+            border-top: 0 solid transparent!important;
+            }
+        button{
+            width: 98%;
+            @include breakpoint(screen, $iPadProWidth){
+                width: 100%;
+            }
+        }
+        @include breakpoint(screen, $iPadProWidth){
+            grid-row: 1;
+        }
+       
+    }
+    .item5SubmitBtn{
+        grid-column: 1/2 span;
+        grid-row: 3;
+        padding-top:6px;
+        @include breakpoint(screen, $iPadProWidth){
+            grid-column: 1 span;
+            grid-row: 1;
+        }
+    }
+}

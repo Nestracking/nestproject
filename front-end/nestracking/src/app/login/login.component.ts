@@ -44,7 +44,10 @@ export class LoginComponent implements OnInit {
       const storage: any = response;
       localStorage.setItem('JWT', storage)
       this.jwtService.authenticate()
-    })
+      
+    });
+    let accueil :string = '/'
+    this.router.navigate([accueil])
   }
   getErrorMessage(formControlName : string): string {
     const errors : any= {

@@ -7,7 +7,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class JwtValidatorService {
 
   ServerAdress = "http://localhost:8014";
-  loggedIn : any = 'isDisconnected';
+  loggedIn : boolean = false;
   admin : boolean = false;
 
   constructor(private http: HttpClient) {
@@ -19,7 +19,7 @@ export class JwtValidatorService {
   isAdmin():boolean{ 
     return this.admin;
   }
-  authenticate():boolean{
+  authenticate(){
     var userJwt = localStorage.getItem('JWT');
     let params = new HttpParams();
     params = params.set('jwt', userJwt);
@@ -29,22 +29,17 @@ export class JwtValidatorService {
       let rep : any = response
       console.log('response.validity = ', rep.Validity);
       if(rep.Validity === true){
-        this.loggedIn = 'isConnected';
+        this.loggedIn = true;
         console.log(this.loggedIn);
         return this.loggedIn
       } else {
-        return false
+        this.loggedIn = false
+        return this.loggedIn
       }
       
     })
 
-    if(jwtValidator){
-      this.loggedIn = true;
-    } else{
-      return false
-    }
-   this.loggedIn = true
-   return this.loggedIn
+   
   }
   logout() { 
     this.loggedIn = false;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtValidatorService } from '../jwt-validator.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +8,20 @@ import { JwtValidatorService } from '../jwt-validator.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
- isConnect: any;
- _subscription: any;
-  constructor(private jwtService : JwtValidatorService) { 
-    this._subscription = jwtService.loggedIn.subscribe((value) => { 
-      this.isConnect = value;
-    });
+
+ 
+  constructor(public jwtService : JwtValidatorService,private router : Router ) { 
+   
   }
 
   ngOnInit() {
+    
+    
+  }
+  onLogout(e){
+    e.preventDefault();
+    console.log('On logout');
+    this.jwtService.logout(); 
+    this.router.navigateByUrl('/')
   }
 }

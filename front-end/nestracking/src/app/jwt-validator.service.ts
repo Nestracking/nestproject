@@ -22,24 +22,21 @@ export class JwtValidatorService {
   authenticate():boolean{
     var userJwt = localStorage.getItem('JWT');
     let params = new HttpParams();
-    console.log('authenticate userJwt : ',userJwt);
     params = params.set('jwt', userJwt);
-    console.log('PARAMS',params);
+    console.log('userJwt', userJwt);
     let jwtValidator = this.http.get(this.ServerAdress + '/jwt/',{ params: params } ).subscribe(response =>{
+      console.log('response = ', response);
       let rep : any = response
-      console.log('RESPONse jwtVerified',rep);
-      console.log('RESPONSE',rep.jwt);
+      return rep
     })
-    
+
     if(jwtValidator){
       this.loggedIn = true;
-      // if(authUser.role === 'admin'){
-      //   this.admin = true; 
-      // }
-      // return true;
     } else{
       return false
     }
+   this.loggedIn = true
+   return this.loggedIn
   }
   logout() { 
     this.loggedIn = false;

@@ -22,16 +22,24 @@ let verifyOptions = {
 }
 
 var publicKEY  = fs.readFileSync(path.resolve(__dirname,'../helpers/public.key'), 'utf8');
-const JWT = jwt.verify(jwtUser,publicKEY,verifyOptions);
-console.log('JWT =',JWT);
-let date = new Date(JWT.iat * 1000)
-console.log('DATE = ', date);
-if(JWT){
-    console.log('le jwt est validé');
-    res.json({jwt: `jwt tokken verified ! Welcome ${JWT.User}`})
-}else {
-    console.log('le jwt ne corespond pas');
+const JWT = jwt.verify(jwtUser,publicKEY,verifyOptions, function(err, decoded) {
+if(err){
+    console.log(err);
+    res.json({
+        'Message' : err,
+    'Validity' : false
+})
 }
+else{
+    console.log(decoded)
+    res.json({ 
+        'Message' : `${decoded.User}`,
+        'Validity' : true
+});
+
+}
+});
+
 
 
 }

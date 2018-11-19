@@ -21,8 +21,9 @@ export class JwtValidatorService {
   }
   authenticate(userJwt):boolean{
     let params = new HttpParams();
-    params = params.set('user', userJwt);
-    
+    console.log(userJwt);
+    params = params.set('jwt', userJwt);
+    console.log(params);
     let authUser = this.http.get(this.ServerAdress + '/user/',{ params: params } )
     
     if(authUser){

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from '@angular/forms';
-
+import { JwtValidatorService } from '../jwt-validator.service';
 import { HTTPRequestService } from '../httprequest.service';
 import { Router, ParamMap } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup; 
   
 
-  constructor(private httprequest: HTTPRequestService, private router: Router) {
+  constructor(private httprequest: HTTPRequestService, private router: Router, private jwtService: JwtValidatorService) {
 
   }
 
@@ -38,14 +38,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit(objValue) { 
     this.httprequest.UserConnect(objValue).subscribe( response => { 
-      // let rep: any = response;
-      // if(rep.Send.length === 38){
-      //   alert(rep.Send)
-      //   let accueil :string = '/'
-      //   this.router.navigate([accueil])
-      // } else {
-      //    alert(rep.Error);
-      // }
+      this.jwtService.authenticate(response)
+
       console.log('RPS LOGIN:',response);
     })
   }

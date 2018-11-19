@@ -19,14 +19,19 @@ export class JwtValidatorService {
   isAdmin():boolean{ 
     return this.admin;
   }
-  authenticate(userJwt):boolean{
+  authenticate():boolean{
+    var userJwt = localStorage.getItem('JWT');
     let params = new HttpParams();
     console.log('authenticate userJwt : ',userJwt);
     params = params.set('jwt', userJwt);
-    console.log(params);
-    let authUser = this.http.get(this.ServerAdress + '/user/',{ params: params } )
+    console.log('PARAMS',params);
+    let jwtValidator = this.http.get(this.ServerAdress + '/jwt/',{ params: params } ).subscribe(response =>{
+      let rep : any = response
+      console.log('RESPONse jwtVerified',rep);
+      console.log('RESPONSE',rep.jwt);
+    })
     
-    if(authUser){
+    if(jwtValidator){
       this.loggedIn = true;
       // if(authUser.role === 'admin'){
       //   this.admin = true; 

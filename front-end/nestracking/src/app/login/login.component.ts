@@ -38,11 +38,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit(objValue) { 
     this.httprequest.UserConnect(objValue).subscribe( response => { 
-      this.jwtService.authenticate(response)
+      
 
       console.log('RPS LOGIN:',response);
       const storage: any = response;
       localStorage.setItem('JWT', storage)
+      this.jwtService.authenticate()
     })
   }
   getErrorMessage(formControlName : string): string {

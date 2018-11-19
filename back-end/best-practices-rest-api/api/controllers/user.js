@@ -51,7 +51,7 @@ let ConnectionPassword = req.query.password
 /// Parsing
 
 let UserFind = await UserModel.find({ 'Name' : ConnectionUser}, {Password: 1});
-console.log(UserFind);
+// console.log(UserFind);
 if(UserFind[0].Password === ConnectionPassword){
 
 // Private and Public Key
@@ -76,9 +76,9 @@ const signOptions = {
     expiresIn:  "12h",
     algorithm:  "RS256"
    };
-console.log('waf');
+// console.log('waf');
 const JWT = jwt.sign(payload,privateKEY,signOptions);
-console.log(JWT);
+// console.log(JWT);
 res.json(JWT);
 }else if(UserFind.length === 0){
 res.json({Error: "L'utilisateur n'existe pas"})

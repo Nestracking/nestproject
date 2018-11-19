@@ -47,6 +47,8 @@ export class LoginComponent implements OnInit {
       //    alert(rep.Error);
       // }
       console.log('RPS LOGIN:',response);
+      const storage: any = response;
+      localStorage.setItem('JWT', storage)
     })
   }
   getErrorMessage(formControlName : string): string {

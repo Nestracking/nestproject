@@ -2,8 +2,9 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       app = express(),
       ReserveRouter = require(`./api/routes/reserve`),
-      FilterRouter = require(`./api/routes/filter`);
+      FilterRouter = require(`./api/routes/filter`),
       UserRouter = require(`./api/routes/user`),
+      JwtRouter = require(`./api/routes/jwt`);
       // path = require("path"),
       // nodemailer = require("nodemailer"),
       
@@ -27,6 +28,8 @@ app.use('/user',UserRouter)
 app.use('/reserve', ReserveRouter)
 // Set Router on 
 app.use('/filter', FilterRouter)
+// Set Router on 
+app.use('/jwt', JwtRouter)
 
 
 module.exports = app

@@ -31,6 +31,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HTTPRequestService } from "./httprequest.service";
 import { PasswordValidator } from './inscription/password.validator';
 import { LoginComponent } from './login/login.component';
+import { JwtValidatorService } from './jwt-validator.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { LoginComponent } from './login/login.component';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [HTTPRequestService, PasswordValidator],
+  providers: [HTTPRequestService, PasswordValidator, JwtValidatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

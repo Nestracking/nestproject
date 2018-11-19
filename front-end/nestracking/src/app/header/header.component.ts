@@ -7,16 +7,14 @@ import { JwtValidatorService } from '../jwt-validator.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
- isConnect;
-  constructor(private jwtService : JwtValidatorService) { }
-
-  ngOnInit() {
-    console.log(this.jwtService.isLoggedIn());
-    if(this.jwtService.isLoggedIn() === true){
-      this.isConnect = 'Connecté';
-    }else{
-      this.isConnect = 'Déconnecté'
-    }
+ isConnect: any;
+ _subscription: any;
+  constructor(private jwtService : JwtValidatorService) { 
+    this._subscription = jwtService.loggedIn.subscribe((value) => { 
+      this.isConnect = value;
+    });
   }
 
+  ngOnInit() {
+  }
 }

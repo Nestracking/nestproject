@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
       this.jwtService.authenticate(response)
 
       console.log('RPS LOGIN:',response);
+      const storage: any = response;
+      localStorage.setItem('JWT', storage)
     })
   }
   getErrorMessage(formControlName : string): string {

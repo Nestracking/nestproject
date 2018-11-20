@@ -6,6 +6,6 @@ const Express = require('express'),
 Router
     .route('/')
     .post(UserController.createUser)
-    // .delete(UserController.delete);
+    .get(UserController.connectuser)
 
 module.exports = Router

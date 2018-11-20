@@ -1,3 +1,51 @@
-<p>
-  searchbar works!
-</p>
+<div class="searchBarContainer">
+  <!-- BARRE DE RECHERCHE -->
+  
+  <div class="searchBar">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <!-- LE GRID -->
+    <div class="gridContainer">
+      <!-- LA VILLE -->
+      <div class="item1Country">
+          <label for="country"></label>
+          <input type="text" 
+                matInput 
+                placeholder=" Pays" 
+                name='country' 
+                ngModel>
+      </div>
+      
+      <!-- DATE DEPART -->
+      <div class="item3DateGo">
+        <!-- <button>Date de départ</button> -->
+        <mat-form-field class="OneFilter">
+          <input matInput [matDatepicker]="picker" placeholder="Departure Date"
+                 (dateInput)="addEvent('input', $event)" (dateChange)="Date('Start', $event)" >
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+      </div>
+      <!-- DATE DE RETOUR -->
+      <div class="item4DateBack">
+        <mat-form-field class="OneFilter">
+          <input matInput [matDatepicker]="Return" placeholder="End"
+                 (dateInput)="addEvent('input', $event)" (dateChange)="Date('End', $event)" >
+          <mat-datepicker-toggle matSuffix [for]="Return"></mat-datepicker-toggle>
+          <mat-datepicker #Return></mat-datepicker>
+        </mat-form-field>
+        
+      </div>
+      <!-- NOMBRE DE PERSONNE-->
+      <div class="item2Number">
+        <label for="number"></label>
+        <input matInput type="text" name='number'placeholder="Nombres de personnes" ngModel>
+      </div>
+      <!-- BOUTON SUBMIT -->
+      <div class="item5SubmitBtn">
+        <button >SUBMIT</button>
+      </div>
+  
+    </div>
+  </form>
+  </div>
+</div>

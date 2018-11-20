@@ -30,6 +30,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 // Provider
 import { HTTPRequestService } from "./httprequest.service";
 import { PasswordValidator } from './inscription/password.validator';
+import { LoginComponent } from './login/login.component';
+import { JwtValidatorService } from './jwt-validator.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { PasswordValidator } from './inscription/password.validator';
     ContactComponent,
     PageNotFoundComponent,
     InscriptionComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ import { PasswordValidator } from './inscription/password.validator';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [HTTPRequestService, PasswordValidator],
+  providers: [HTTPRequestService, PasswordValidator, JwtValidatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -23,7 +23,7 @@ exports.createUser = async function (req, res) {
 
     // Parsing à faire
 
-    let UserFind = await UserModel.find({ 'Name' : UserInfos.user}, {Password: 1}, {Email:1});
+    let UserFind = await UserModel.find({ 'Name' : UserInfos.user}, {Password: 1});
     // On cherche si on a des User avec ce nom
     console.log(UserFind);
     if(UserFind.length === 0){
@@ -45,26 +45,27 @@ exports.createUser = async function (req, res) {
 }
 
 exports.connectuser = async function (req, res){
-let ConnectionInfo = req.body;
+let ConnectionUser = req.query.user
+let ConnectionPassword = req.query.password
 
 /// Parsing
 
-let UserFind = await UserModel.find({ 'Name' : UserInfos.Name}, {Password: 1});
-
-if(UserFind[0].Password === ConnectionInfo.Password){
+let UserFind = await UserModel.find({ 'Name' : ConnectionUser}, {Password: 1});
+// console.log(UserFind);
+if(UserFind[0].Password === ConnectionPassword){
 
 // Private and Public Key
-var privateKEY  = fs.readFileSync('./private.key', 'utf8');
-var publicKEY  = fs.readFileSync('./public.key', 'utf8');
+var privateKEY  = fs.readFileSync(path.resolve(__dirname,'../helpers/private.key'), 'utf8');
+var publicKEY  = fs.readFileSync(path.resolve(__dirname,'../helpers/public.key'), 'utf8');
 
 var i  = 'Nestracking';           // Issuer 
-var s  = ConnectionInfo.user;    // Subject 
+var s  = ConnectionUser;    // Subject 
 var a  = 'http://localhost:4200';     // Audience
 
 // PAYLOAD
 const payload = {
-    User: ConnectionInfo.User,
-    Password: ConnectionInfo.User
+    User: ConnectionUser,
+    Password: ConnectionPassword
    };
 
 // SIGNING OPTIONS
@@ -75,11 +76,11 @@ const signOptions = {
     expiresIn:  "12h",
     algorithm:  "RS256"
    };
-
+// console.log('waf');
 const JWT = jwt.sign(payload,privateKEY,signOptions);
-console.log(JWT);
+// console.log(JWT);
 res.json(JWT);
-}else if(UserFind = []){
+}else if(UserFind.length === 0){
 res.json({Error: "L'utilisateur n'existe pas"})
 } else {
 res.json({Error : "Le mot de passe est incorrect, arrêtez d'essayer de vous connectez sur le compte d'un autre !"})    

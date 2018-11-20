@@ -67,4 +67,19 @@ UserCreate(userDatas){
   return this.http.post(this.ServerAdress + '/user/', userDatas)
 }
 
+UserConnect(userDatas){
+  console.log(userDatas);
+  let params = new HttpParams();
+ params = params.set('user', userDatas.user);
+ params = params.set('password', userDatas.password);
+  return this.http.get(this.ServerAdress + '/user/',{ params: params } )
+}
+getById(id){
+  console.log('id = ',id);
+  let params = new HttpParams();
+  params = params.set('id', id);
+  console.log('params = ', params);
+  return this.http.get(this.ServerAdress + '/byId/', { params: params });
+}
+
 }

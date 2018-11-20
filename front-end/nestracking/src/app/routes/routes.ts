@@ -6,6 +6,7 @@ import { DestinationComponent } from '../destination/destination.component';
 import { ContactComponent } from "../contact/contact.component";
 import { PageNotFoundComponent } from "../page-not-found/page-not-found.component";
 import { InscriptionComponent } from "../inscription/inscription.component";
+import { LoginComponent } from "../login/login.component";
 
 export const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -15,5 +16,6 @@ export const routes: Routes = [
     { path: 'product/:id', component: DestinationComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'inscription', component: InscriptionComponent },
+    { path: 'login', component: LoginComponent  },
     { path: '**', component: PageNotFoundComponent },
 ]

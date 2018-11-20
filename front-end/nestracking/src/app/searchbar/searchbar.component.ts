@@ -30,12 +30,8 @@ DateEnd;
     console.log("this.DateEnd = ",this.DateEnd);
   }
   onSubmit(inputValues){
-    console.log(inputValues);
-
-    let dateDebut = this.DateStart.replace(/ /g,'.')
-    let dateFin = this.DateEnd.replace(/ /g,'.')
-    console.log('dateDebut = ',dateDebut);
-    let OurRoute :string = `/searchpage/${inputValues.country}/${inputValues.number}/${dateDebut}/${dateFin}`;
+      
+    let OurRoute :string = `/searchpage/${inputValues.country}/${inputValues.number}/${this.DateStart}/${this.DateEnd}`;
     console.log(OurRoute);
     this.router.navigate([OurRoute])
   }

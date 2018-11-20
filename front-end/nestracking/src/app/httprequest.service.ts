@@ -74,5 +74,8 @@ UserConnect(userDatas){
  params = params.set('password', userDatas.password);
   return this.http.get(this.ServerAdress + '/user/',{ params: params } )
 }
+getById(id){
+  // return this.http.get(this.ServerAdress + '/filter/', { params: params });
+}
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import * as moment from 'moment';
+import { Router, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
@@ -9,7 +10,7 @@ import * as moment from 'moment';
 export class SearchbarComponent implements OnInit {
 DateStart;
 DateEnd;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -25,5 +26,17 @@ DateEnd;
       this.DateEnd = moment(event.target.value).format("DD MM YYYY");
       // On utilise la librairie moment.js pour transformer la date de l'event en une string au format (Jour Mois Année)
     }
+    console.log("this.DateStart = ",this.DateStart);
+    console.log("this.DateEnd = ",this.DateEnd);
+  }
+  onSubmit(inputValues){
+    console.log(inputValues);
+
+    let dateDebut = this.DateStart.replace(/ /g,'.')
+    let dateFin = this.DateEnd.replace(/ /g,'.')
+    console.log('dateDebut = ',dateDebut);
+    let OurRoute :string = `/searchpage/${inputValues.country}/${inputValues.number}/${dateDebut}/${dateFin}`;
+    console.log(OurRoute);
+    this.router.navigate([OurRoute])
   }
 }

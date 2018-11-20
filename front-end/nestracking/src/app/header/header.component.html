@@ -40,6 +40,9 @@
         </mat-menu>
       <div class="navMenu">
         <ul>
+          <li><a [routerLink]="['/login']" routerLinkActive="active" *ngIf="!this.jwtService.isLoggedIn()">Login</a> </li>
+            
+          <li><a href="#" (click)='onLogout($event)' *ngIf="this.jwtService.isLoggedIn()">Logout</a> </li>
           <li><a [routerLink]="['/contact']" 
              routerLinkActive="active">
              Contact</a></li>
@@ -49,9 +52,6 @@
           <li><a [routerLink]="['/index']" 
             routerLinkActive="active">
             Accueil</a></li>
-          <li><a [routerLink]="['/login']" routerLinkActive="active" *ngIf="!this.jwtService.isLoggedIn()">login</a> </li>
-            
-          <li><a href="#" (click)='onLogout($event)' *ngIf="this.jwtService.isLoggedIn()">logout</a> </li>
            
         </ul>
       </div>

@@ -12,10 +12,14 @@ const express = require('express'),
  * @param {*} res 
  */
 exports.byId= async function (req, res) {
-    let ID = req.params.id
+    let ID = req.query.id
    console.log(ID);
     
-    let DestinationList = await HotelsModel.findById(ID,{Pictures : 1 })
+    // let DestinationList = await HotelsModel.find({_id: ID},{Pictures: 1})
+    let DestinationList = await HotelsModel.find({id: "5bc98ecba9053617f727b8ff"}, function (err) {
+        if (err) return handleError(err);
+        // deleted at most one tank document
+      })
     console.log(DestinationList);
     res.json(DestinationList);
     

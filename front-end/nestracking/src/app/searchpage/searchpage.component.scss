@@ -157,8 +157,97 @@ padding: 0px;
         justify-content: space-around;
         //width:auto; 
     }
+    #Filter{
+        width: 35%;
+        background-color: grey;
+        height: 1500px;
+        display: grid;
+        padding: 2%;
+        grid-template-columns: 40% 55%;
+        grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+        align-items:center;
+        }
+    #Tri{
+            width: 100% !important;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 80px;
+            background-color: #3ab3b0;
+            border-radius: 35px 35px 0px 0px;
+            display: flex;
+            
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            align-items:center;
+            font-size: 12px;
+            }
+    .OneHotel{
+                width: 92%;
+                padding: 4%; 
+                background-color: lightblue;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                width:200px;
+                margin-bottom: 25px;
+                }
+                .OneHotelText{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-content: center;
+                    padding-left: 12px;
+                }
+                .OneHotel{
+                    width: 92%;
+                    padding: 4%; 
+                    background-color: lightblue;
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    width:200px;
+                    margin-bottom: 25px;
+                    }
+                
 }
 
 @media only screen and (min-width: 1024px){
-
+    #Filter{
+        width: 35%;
+        background-color: grey;
+        height: 1500px;
+        display: grid;
+        padding: 2%;
+        grid-template-columns: 40% 55%;
+        grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+        align-items:center;
+        }
+    #Tri{
+            width: 100% !important;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 80px;
+            background-color: #3ab3b0;
+            border-radius: 35px 35px 0px 0px;
+            display: flex;
+            
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            align-items:center;
+            font-size: 12px;
+            }
+    .OneHotel{
+                width: 92%;
+                padding: 4%; 
+                background-color: lightblue;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                width:200px;
+                margin-bottom: 25px;
+                }
 }

@@ -10,19 +10,25 @@ import { HTTPRequestService } from '../httprequest.service';
 })
 export class DestinationComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute, private http: HTTPRequestService) { }
+  
+  constructor(private router: Router, private route: ActivatedRoute, private http: HTTPRequestService) {
+    this.dataDestination }
 id: string;
+dataDestination: any;
 // Mettre any si ça fait chier
 // Call les id avec {{id}}
   ngOnInit() {
     let Params = this.route.snapshot.paramMap;
     this.id = Params.get('id');
-    console.log('this.id = ',this.id);
+    // console.log('this.id = ',this.id);
 
     this.http.getById(this.id).subscribe(response=>{
       console.log('response = ',response);
-      return response
+      this.dataDestination = response
+      console.log('this.data', this.dataDestination);
+      return this.dataDestination
     })
+    
   }
 
 }

@@ -26,8 +26,8 @@ DateEnd;
       this.DateEnd = moment(event.target.value).format("DD MM YYYY");
       // On utilise la librairie moment.js pour transformer la date de l'event en une string au format (Jour Mois Année)
     }
-    console.log("this.DateStart = ",this.DateStart);
-    console.log("this.DateEnd = ",this.DateEnd);
+    // console.log("this.DateStart = ",this.DateStart);
+    // console.log("this.DateEnd = ",this.DateEnd);
   }
   onSubmit(inputValues){
       

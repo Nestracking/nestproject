@@ -4,6 +4,7 @@ const express = require('express'),
       ReserveRouter = require(`./api/routes/reserve`),
       FilterRouter = require(`./api/routes/filter`),
       UserRouter = require(`./api/routes/user`),
+      ByIdRouter = require(`./api/routes/byId`),
       JwtRouter = require(`./api/routes/jwt`);
       // path = require("path"),
       // nodemailer = require("nodemailer"),
@@ -30,6 +31,8 @@ app.use('/reserve', ReserveRouter)
 app.use('/filter', FilterRouter)
 // Set Router on 
 app.use('/jwt', JwtRouter)
+// Set Router on 
+app.use('/byId', ByIdRouter)
 
 
 module.exports = app

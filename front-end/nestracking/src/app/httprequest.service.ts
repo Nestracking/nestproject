@@ -75,7 +75,11 @@ UserConnect(userDatas){
   return this.http.get(this.ServerAdress + '/user/',{ params: params } )
 }
 getById(id){
-  // return this.http.get(this.ServerAdress + '/filter/', { params: params });
+  console.log('id = ',id);
+  let params = new HttpParams();
+  params = params.set('id', id);
+  console.log('params = ', params);
+  return this.http.get(this.ServerAdress + '/byId/', { params: params });
 }
 
 }
